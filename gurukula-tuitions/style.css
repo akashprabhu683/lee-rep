@@ -1553,7 +1553,13 @@ section {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
+
+    .wa-menu-container {
+        right: 100px;
+        bottom: 40px;
+    }
 }
+
 
 /* 3. TABLETS / LARGE PHONES: 481px to 768px */
 @media (max-width: 768px) {
