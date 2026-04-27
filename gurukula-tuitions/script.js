@@ -55,12 +55,21 @@ backToTop.addEventListener('click', () => {
 
 // WhatsApp Menu Toggle
 const waButton = document.getElementById('waButton');
+const contactWhatsApp = document.getElementById('contactWhatsApp');
 const waMenu = document.getElementById('waMenu');
-if (waButton && waMenu) {
-    waButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        waMenu.classList.toggle('show');
-    });
+if (waMenu) {
+    if (waButton) {
+        waButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            waMenu.classList.toggle('show');
+        });
+    }
+    if (contactWhatsApp) {
+        contactWhatsApp.addEventListener('click', (e) => {
+            e.stopPropagation();
+            waMenu.classList.toggle('show');
+        });
+    }
     document.addEventListener('click', () => waMenu.classList.remove('show'));
 }
 
@@ -78,10 +87,11 @@ if (contactForm) {
         const name = document.getElementById('form-name').value;
         const phone = document.getElementById('form-phone').value;
         const msg = document.getElementById('form-message').value;
-        const waMsg = encodeURIComponent(`Hi, I'm ${name} (${phone}). ${msg}`);
-        window.open(`https://wa.me/919600296734?text=${waMsg}`, '_blank');
+        const subject = encodeURIComponent(`Admission Inquiry - ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\n\nMessage:\n${msg}`);
+        window.location.href = `mailto:info@gurukulatuitions.com?subject=${subject}&body=${body}`;
         this.reset();
-        alert('Thank you ' + name + '! Your message has been sent via WhatsApp.');
+        alert('Thank you ' + name + '! Your email client should now open with your message.');
     });
 }
 
