@@ -777,7 +777,11 @@
             box-shadow: var(--shadow-deep);
             transition: var(--transition);
             border: 1px solid transparent;
-            cursor: default
+            cursor: default;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
         }
 
         .subject-card:hover {
@@ -887,7 +891,10 @@
             box-shadow: var(--shadow-deep);
             transition: var(--transition);
             position: relative;
-            overflow: hidden
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center
         }
 
         .why-card::before {
@@ -995,7 +1002,11 @@
             padding: 35px;
             box-shadow: var(--shadow-deep);
             transition: var(--transition);
-            position: relative
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center
         }
 
         .testi-card:hover {
@@ -1019,8 +1030,10 @@
 
         .testi-card .author {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px
+            gap: 12px;
+            margin-top: auto
         }
 
         .testi-card .avatar {
@@ -1455,6 +1468,15 @@
             border: 2px solid transparent;
             transition: var(--transition);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fees-card .btn {
+            margin-top: auto;
+            width: 100%;
+            justify-content: center;
         }
 
         .fees-card.popular {
@@ -1912,7 +1934,7 @@
                         <li><i class="fas fa-check"></i> Homework Support</li>
                         <li><i class="fas fa-check"></i> Monthly Tests</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center">Contact for Enrollment</a>
+                    <a href="#contact" class="btn btn-primary">Apply Now</a>
                 </div>
                 <div class="fees-card popular reveal">
                     <h4>Middle & High</h4>
@@ -1936,7 +1958,7 @@
                         <li><i class="fas fa-check"></i> Intensive Practice</li>
                         <li><i class="fas fa-check"></i> Career Guidance</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center">Join Now</a>
+                    <a href="#contact" class="btn btn-primary">Apply Now</a>
                 </div>
             </div>
             <p class="text-center reveal" style="margin-top:40px; font-size:0.9rem; color:var(--text-light)">* Fees may vary based on specific subjects and batch requirements.</p>
