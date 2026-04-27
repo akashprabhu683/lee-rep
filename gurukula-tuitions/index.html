@@ -765,7 +765,8 @@
         .subjects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px
+            gap: 20px;
+            justify-content: center
         }
 
         .subject-card {
@@ -874,7 +875,8 @@
         .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px
+            gap: 24px;
+            justify-content: center
         }
 
         .why-card {
@@ -983,7 +985,8 @@
         .testi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px
+            gap: 24px;
+            justify-content: center
         }
 
         .testi-card {
@@ -1332,6 +1335,66 @@
         }
 
         /* WHATSAPP */
+        .wa-menu-container {
+            position: fixed;
+            bottom: 100px;
+            right: 28px;
+            width: 200px;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            z-index: 950;
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            animation: wa-slide-up 0.3s ease;
+        }
+
+        @keyframes wa-slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wa-menu-container.show {
+            display: flex;
+        }
+
+        .wa-menu-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .wa-option {
+            padding: 8px 15px;
+            background: var(--off-white);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .wa-option:hover {
+            background: #25D366;
+            color: var(--white);
+        }
+
         .whatsapp-float {
             position: fixed;
             bottom: 28px;
@@ -1348,7 +1411,8 @@
             z-index: 900;
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             transition: var(--transition);
-            animation: pulse-wa 2s infinite
+            animation: pulse-wa 2s infinite;
+            cursor: pointer;
         }
 
         .whatsapp-float:hover {
@@ -1366,6 +1430,75 @@
             50% {
                 box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7)
             }
+        }
+
+        /* FEES SECTION */
+        .fees {
+            background: var(--off-white);
+        }
+
+        .fees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .fees-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-deep);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .fees-card.popular {
+            border-color: var(--primary-light);
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        .fees-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .fees-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .fees-price span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .fees-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .fees-features li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .fees-features li i {
+            color: var(--accent);
         }
 
         /* RESPONSIVE */
@@ -1713,46 +1846,100 @@
             </div>
             <div class="testi-grid">
                 <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"My daughter went from struggling in Maths to scoring 98 in her 10th board exams! The
-                        teachers here truly understand how to bring out the best in each child."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Jayakanth sir is an exceptionally talented and experienced Maths teacher. He not only teaches concepts clearly but also understands students' psychology, helping them overcome fear and build confidence in the subject."</blockquote>
                     <div class="author">
-                        <div class="avatar">R</div>
+                        <div class="avatar">D</div>
                         <div class="author-info">
-                            <h5>Mrs. Revathi Kumar</h5>
-                            <p>Parent of Class 10 Student</p>
+                            <h5>Dhana Jayan</h5>
+                            <p>Parent (Maths Specialist)</p>
                         </div>
                     </div>
                 </div>
                 <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Gurukula Tuitions helped me clear NEET with a great score. The concept-based teaching
-                        in Physics and Chemistry made all the difference. Highly recommended!"</blockquote>
-                    <div class="author">
-                        <div class="avatar">A</div>
-                        <div class="author-info">
-                            <h5>Aravind Shankar</h5>
-                            <p>Class 12 Student, CBSE</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <blockquote>"The small batch size is what drew us in, and the results kept us. Both my kids attend
-                        Gurukula and their confidence and grades have improved remarkably."</blockquote>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Wonderful experience! The tutors are knowledgeable, patient, and make complex concepts easy to understand."</blockquote>
                     <div class="author">
                         <div class="avatar">S</div>
                         <div class="author-info">
-                            <h5>Mr. Suresh Babu</h5>
-                            <p>Parent of Class 7 & Class 11 Students</p>
+                            <h5>Siva Shankar</h5>
+                            <p>Parent & Student Mentor</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Mr. Jayakanth is a young and energetic teacher who is absolutely updated to relevant sources and capable of producing smart and disciplined students who can be nation builders of the near future."</blockquote>
+                    <div class="author">
+                        <div class="avatar">T</div>
+                        <div class="author-info">
+                            <h5>Tony Geokul</h5>
+                            <p>Education Professional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card reveal">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>"Actually i am getting 40 out of 100 but after joining gurukula. Jayakanth sir made me to get 100/100 for board exam."</blockquote>
+                    <div class="author">
+                        <div class="avatar">Z</div>
+                        <div class="author-info">
+                            <h5>Roronoa Zoro</h5>
+                            <p>Student (Board Exam Achiever)</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FEES -->
+    <section class="fees" id="fees">
+        <div class="container">
+            <div class="text-center reveal">
+                <span class="section-badge">Investment</span>
+                <h2 class="section-title">Affordable Fee Structure</h2>
+                <p class="section-subtitle">Quality education that fits your budget. We focus on value and results.</p>
+            </div>
+            <div class="fees-grid">
+                <div class="fees-card reveal">
+                    <h4>Primary</h4>
+                    <p>Classes 1 – 5</p>
+                    <div class="fees-price">₹1,500<span> / Month</span></div>
+                    <ul class="fees-features">
+                        <li><i class="fas fa-check"></i> All Major Subjects</li>
+                        <li><i class="fas fa-check"></i> Basic Concepts</li>
+                        <li><i class="fas fa-check"></i> Homework Support</li>
+                        <li><i class="fas fa-check"></i> Monthly Tests</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center">Contact for Enrollment</a>
+                </div>
+                <div class="fees-card popular reveal">
+                    <h4>Middle & High</h4>
+                    <p>Classes 6 – 10</p>
+                    <div class="fees-price">₹2,500<span> / Month</span></div>
+                    <ul class="fees-features">
+                        <li><i class="fas fa-check"></i> Special Maths & Science</li>
+                        <li><i class="fas fa-check"></i> Concept Mastering</li>
+                        <li><i class="fas fa-check"></i> Board Preparation</li>
+                        <li><i class="fas fa-check"></i> Weekly Assessments</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center">Apply Now</a>
+                </div>
+                <div class="fees-card reveal">
+                    <h4>Secondary</h4>
+                    <p>Classes 11 – 12</p>
+                    <div class="fees-price">₹3,500<span> / Month</span></div>
+                    <ul class="fees-features">
+                        <li><i class="fas fa-check"></i> Major Stream Subjects</li>
+                        <li><i class="fas fa-check"></i> Entrance Coaching</li>
+                        <li><i class="fas fa-check"></i> Intensive Practice</li>
+                        <li><i class="fas fa-check"></i> Career Guidance</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" style="width:100%; justify-content:center">Join Now</a>
+                </div>
+            </div>
+            <p class="text-center reveal" style="margin-top:40px; font-size:0.9rem; color:var(--text-light)">* Fees may vary based on specific subjects and batch requirements.</p>
         </div>
     </section>
 
@@ -1887,10 +2074,25 @@
     <!-- BACK TO TOP -->
     <button class="back-to-top" id="backToTop" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
 
+    <!-- WHATSAPP SELECTOR -->
+    <div class="wa-menu-container" id="waMenu">
+        <div class="wa-menu-header">Select Class</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 1')">Class 1</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 2')">Class 2</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 3')">Class 3</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 4')">Class 4</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 5')">Class 5</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 6')">Class 6</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 7')">Class 7</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 8')">Class 8</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 9')">Class 9</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 10')">Class 10</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 11')">Class 11</div>
+        <div class="wa-option" onclick="sendWAMsg('Class 12')">Class 12</div>
+    </div>
+
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/919600296734?text=Hi%2C%20I'm%20interested%20to%20join%20my%20child%20to%20your%20tuition."
-        class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i
-            class="fab fa-whatsapp"></i></a>
+    <div id="waButton" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></div>
 
     <script>
         // Hamburger Menu
@@ -1947,6 +2149,21 @@
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // WhatsApp Menu Toggle
+        const waButton = document.getElementById('waButton');
+        const waMenu = document.getElementById('waMenu');
+        waButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            waMenu.classList.toggle('show');
+        });
+        document.addEventListener('click', () => waMenu.classList.remove('show'));
+
+        function sendWAMsg(className) {
+            const msg = `Hello, I’m interested in joining Gurukula Tuitions for ${className}. I’ve seen the details on your website. Could you please confirm availability and how to proceed with admission?`;
+            const waUrl = `https://wa.me/919600296734?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, '_blank');
+        }
 
         // Contact form
         document.getElementById('contactForm').addEventListener('submit', function (e) {
