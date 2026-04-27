@@ -44,7 +44,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px
+            scroll-padding-top: 90px
         }
 
         body {
@@ -258,6 +258,13 @@
         .mobile-nav a:hover {
             color: var(--primary);
             padding-left: 10px
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+            font-weight: 700;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary)
         }
 
         .overlay {
@@ -1903,6 +1910,15 @@
             navLinksAll.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current) });
         }
         window.addEventListener('scroll', setActiveLink);
+        window.addEventListener('load', setActiveLink);
+
+        // Click event for snappy active state
+        navLinksAll.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinksAll.forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
 
         // Scroll reveal
         const reveals = document.querySelectorAll('.reveal');
