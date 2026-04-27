@@ -1514,110 +1514,232 @@ section {
     color: var(--accent);
 }
 
-/* RESPONSIVE */
-@media(max-width:992px) {
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* 1. LARGE SCREENS / DESKTOPS: 1025px and above (Base styles) */
+@media (min-width: 1025px) {
+    /* Base styles already handle this range */
+}
+
+/* 2. LAPTOPS / DESKTOPS: 769px to 1024px */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+
     .nav-links {
-        display: none
+        display: none;
     }
 
     .hamburger {
-        display: flex
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-inner {
+        gap: 40px;
+    }
+
+    .about-grid {
+        gap: 40px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* 3. TABLETS / LARGE PHONES: 481px to 768px */
+@media (max-width: 768px) {
+    section {
+        padding: 70px 0;
+    }
+
+    .hero {
+        padding-top: 100px;
+        text-align: center;
+        min-height: auto;
     }
 
     .hero-inner {
         grid-template-columns: 1fr;
-        text-align: center
     }
 
     .hero-visual {
-        display: none
+        display: none;
     }
 
-    .hero h1 {
-        font-size: 2.4rem
-    }
-
-    .hero p {
-        margin: 0 auto 36px
-    }
-
-    .hero-btns {
-        justify-content: center
-    }
-
-    .hero-stats {
-        justify-content: center
-    }
-
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr
-    }
-
-    .hero-stats {
-        gap: 24px
-    }
-}
-
-@media(max-width:600px) {
-    section {
-        padding: 60px 0
-    }
-
-    .hero h1 {
-        font-size: 1.8rem
-    }
-
-    .hero p {
-        font-size: 0.95rem
-    }
-
-    .hero-stats {
+    .hero-content {
+        display: flex;
         flex-direction: column;
-        gap: 16px
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero p {
+        margin: 0 auto 30px;
     }
 
     .hero-btns {
-        flex-direction: column
-    }
-
-    .btn {
-        justify-content: center
+        justify-content: center;
     }
 
     .section-title {
-        font-size: 1.7rem
+        font-size: 2rem;
     }
 
-    .subjects-grid {
-        gap: 14px
+    .hero-stats {
+        justify-content: center;
+        gap: 30px;
     }
-    .subject-card { flex: 0 1 160px; padding: 25px 15px; }
-    .why-card { flex: 1 1 100%; }
-    .testi-card { flex: 1 1 100%; }
-    .fees-card { flex: 1 1 100%; }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content .section-subtitle {
+        text-align: center !important;
+        margin: 0 auto 30px !important;
+    }
+
+    .about-feature {
+        text-align: left;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* 4. MOBILE DEVICES (PORTRAIT): Up to 480px */
+@media (max-width: 480px) {
+    section {
+        padding: 50px 0;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-badge {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .hero-stat {
+        text-align: center;
+    }
+
+    .about-img {
+        min-height: 300px;
+        padding: 30px 20px;
+    }
+
+    .about-feature {
+        padding: 18px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .subject-card {
+        flex: 1 1 100%;
+    }
+
+    .why-card, .testi-card, .fees-card {
+        flex: 1 1 100%;
+    }
+
+    .fees-card.popular {
+        transform: scale(1);
+    }
 
     .timing-row {
         flex-direction: column;
-        gap: 8px;
-        text-align: center
+        gap: 10px;
+        text-align: center;
     }
 
-    .testi-grid {
-        grid-template-columns: 1fr
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
 
     .map-wrapper iframe {
-        height: 280px
+        height: 300px;
     }
 
     .whatsapp-float {
         bottom: 20px;
         right: 20px;
-        width: 52px;
-        height: 52px;
-        font-size: 1.5rem
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
     }
-    .wa-menu-container { right: 20px; bottom: 85px; width: 180px; }
-    .fees-card.popular { transform: scale(1); }
+
+    .wa-menu-container {
+        right: 20px;
+        bottom: 85px;
+        width: calc(100% - 40px);
+        max-width: 250px;
+    }
+
+    .back-to-top {
+        right: 20px;
+        bottom: 150px;
+        width: 45px;
+        height: 45px;
+    }
 }
