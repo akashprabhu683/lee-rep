@@ -994,6 +994,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     flex: 0 1 380px;
 }
@@ -1022,7 +1023,6 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    margin-top: auto
 }
 
 .testi-card .avatar {
