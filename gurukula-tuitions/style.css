@@ -1340,8 +1340,8 @@ section {
 /* WHATSAPP */
 .wa-menu-container {
     position: fixed;
-    bottom: 100px;
-    right: 28px;
+    bottom: 40px;
+    right: 100px;
     width: 200px;
     background: var(--white);
     border-radius: 15px;
@@ -1552,11 +1552,6 @@ section {
     .footer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
-    }
-
-    .wa-menu-container {
-        right: 100px;
-        bottom: 40px;
     }
 }
 
