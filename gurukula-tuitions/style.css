@@ -1109,6 +1109,15 @@ section {
     width: 100%;
 }
 
+.map-action a {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.map-action a:hover {
+    border-bottom: 1px solid currentColor;
+}
+
 /* CONTACT */
 .contact {
     background: var(--off-white)
