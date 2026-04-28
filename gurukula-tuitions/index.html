@@ -18,10 +18,10 @@
     <meta property="og:url" content="https://gurukulatuitions.com">
     <meta property="og:image" content="https://gurukulatuitions.com/assets/og-image.jpg">
 
-    <!-- Fonts -->
+    <!-- FIX 1: Added font-display=swap to prevent render-blocking fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap&font-display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -93,9 +93,10 @@
                     </div>
                     <div class="hero-trust fade-up" style="animation-delay: 0.4s;">
                         <div class="trust-avatars">
-                            <img src="https://ui-avatars.com/api/?name=S&background=1E40AF&color=fff" alt="Student">
-                            <img src="https://ui-avatars.com/api/?name=A&background=F59E0B&color=fff" alt="Student">
-                            <img src="https://ui-avatars.com/api/?name=P&background=10B981&color=fff" alt="Student">
+                            <!-- FIX 2: Replaced external ui-avatars.com API calls with inline CSS avatars -->
+                            <div class="avatar-circle" style="background:#1E40AF;">S</div>
+                            <div class="avatar-circle" style="background:#F59E0B;">A</div>
+                            <div class="avatar-circle" style="background:#10B981;">P</div>
                             <span class="avatar-plus">+500</span>
                         </div>
                         <div class="trust-text">
@@ -134,7 +135,8 @@
             <div class="about-grid">
                 <div class="about-visual reveal">
                     <div class="about-img-box">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Students Learning" class="about-main-img">
+                        <!-- FIX 3: Added loading="lazy" and decoding="async" to all below-fold images -->
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Students Learning" class="about-main-img" loading="lazy" decoding="async">
                         <div class="experience-badge">
                             <strong>10+</strong>
                             <span>Years of Trust</span>
@@ -294,8 +296,9 @@
             </div>
             <div class="faculty-grid">
                 <div class="faculty-card reveal">
-                    <div class="faculty-img">
-                        <img src="https://ui-avatars.com/api/?name=Jayakanth+Sir&background=1E40AF&color=fff&size=400" alt="Jayakanth Sir">
+                    <!-- FIX 2 (cont): Replaced ui-avatars.com with CSS avatar placeholder -->
+                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #1E40AF, #3B82F6);">
+                        <span class="faculty-initials">J</span>
                     </div>
                     <div class="faculty-info">
                         <h4>Jayakanth Sir</h4>
@@ -305,8 +308,8 @@
                     </div>
                 </div>
                 <div class="faculty-card reveal">
-                    <div class="faculty-img">
-                        <img src="https://ui-avatars.com/api/?name=Meenakshi+Mam&background=F59E0B&color=fff&size=400" alt="Faculty member">
+                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #D97706, #F59E0B);">
+                        <span class="faculty-initials">M</span>
                     </div>
                     <div class="faculty-info">
                         <h4>Dr. S. Meenakshi</h4>
@@ -316,8 +319,8 @@
                     </div>
                 </div>
                 <div class="faculty-card reveal">
-                    <div class="faculty-img">
-                        <img src="https://ui-avatars.com/api/?name=Rajesh+Sir&background=10B981&color=fff&size=400" alt="Faculty member">
+                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #065F46, #10B981);">
+                        <span class="faculty-initials">R</span>
                     </div>
                     <div class="faculty-info">
                         <h4>Mr. R. Rajesh</h4>
@@ -339,43 +342,44 @@
                 <p class="section-desc">Take a glimpse into our modern classrooms and vibrant study sessions.</p>
             </div>
             <div class="gallery-grid">
+                <!-- FIX 3 (cont): loading="lazy" + decoding="async" on all gallery images -->
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=800&auto=format&fit=crop" alt="Modern Classroom">
+                    <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=800&auto=format&fit=crop" alt="Modern Classroom" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Classroom Setup</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Students Learning">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Students Learning" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Study Session</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800&auto=format&fit=crop" alt="Interactive Teaching">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800&auto=format&fit=crop" alt="Interactive Teaching" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Teaching Session</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Library and Study Area">
+                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Library and Study Area" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Resource Center</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=800&auto=format&fit=crop" alt="Student Achievement">
+                    <img src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=800&auto=format&fit=crop" alt="Student Achievement" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Celebrating Success</span>
                     </div>
                 </div>
                 <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Creative Learning">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Creative Learning" loading="lazy" decoding="async">
                     <div class="gallery-overlay">
                         <i class="fas fa-search-plus"></i>
                         <span>Individual Focus</span>
@@ -443,7 +447,7 @@
                             <input type="text" id="school" placeholder="e.g. Tiruvallur Public School">
                         </div>
                         <div class="form-group">
-                            <label for="subjects">Subjects Interested</label>
+                            <label for="subjectsInterested">Subjects Interested</label>
                             <input type="text" id="subjectsInterested" placeholder="e.g. Mathematics, Science">
                         </div>
                         <div class="form-group">

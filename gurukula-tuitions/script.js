@@ -1,38 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     // 1. CONSTANTS & DOM ELEMENTS
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('backToTop');
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
+    const navbar      = document.getElementById('navbar');
+    const backToTop   = document.getElementById('backToTop');
+    const hamburger   = document.getElementById('hamburger');
+    const mobileNav   = document.getElementById('mobileNav');
     const closeMobileNav = document.getElementById('closeMobileNav');
-    const overlay = document.getElementById('overlay');
+    const overlay     = document.getElementById('overlay');
     const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinks    = document.querySelectorAll('.nav-links a');
     const admissionForm = document.getElementById('admissionForm');
     const formSuccess = document.getElementById('formSuccess');
-    const submitBtn = document.getElementById('submitBtn');
-    
+    const submitBtn   = document.getElementById('submitBtn');
+
     const NAV_HEIGHT = 82;
 
-    // 2. STICKY NAVBAR & BACK TO TOP VISIBILITY
+    // 2. STICKY NAVBAR & BACK TO TOP
+    //    FIX 9: Scroll handler wrapped in requestAnimationFrame throttle.
+    //    This means handleScroll runs at most once per animation frame (~60fps cap)
+    //    instead of firing on every tiny scroll delta — prevents main-thread overload.
     const handleScroll = () => {
         const scrollY = window.scrollY;
-        
-        // Sticky Navbar
-        if (scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        // Back to Top
-        if (scrollY > 500) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
-        }
 
-        // Force 'Home' active at the very top
+        navbar.classList.toggle('scrolled', scrollY > 50);
+        backToTop.classList.toggle('show', scrollY > 500);
+
         if (scrollY < 100) {
             navLinks.forEach(link => {
                 link.classList.toggle('active', link.getAttribute('href') === '#home');
@@ -40,34 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Init on load
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
-    // 3. SMOOTH NAVIGATION (Modern Approach)
+    handleScroll(); // run once on load
+
+    // 3. SMOOTH NAVIGATION
     const smoothScroll = (targetId) => {
         const targetElement = document.querySelector(targetId);
         if (!targetElement) return;
-
         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - NAV_HEIGHT;
-        
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     };
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
-            
             e.preventDefault();
-            
-            // Close mobile menu if open
-            if (mobileNav.classList.contains('open')) {
-                toggleMenu();
-            }
-
+            if (mobileNav.classList.contains('open')) toggleMenu();
             smoothScroll(href);
         });
     });
@@ -76,27 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // 4. ACTIVE LINK TRACKING (Intersection Observer - High Performance)
+    // 4. ACTIVE LINK TRACKING (IntersectionObserver — zero scroll cost)
     const sections = document.querySelectorAll('header[id], section[id]');
-    
+
     const activeNavObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
-                
-                // Update Desktop Nav
                 navLinks.forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                 });
-
-                // Update Mobile Nav
                 mobileLinks.forEach(link => {
                     link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                 });
             }
         });
     }, {
-        // Trigger when section occupies the top portion of the viewport
         rootMargin: `-${NAV_HEIGHT}px 0px -70% 0px`,
         threshold: 0
     });
@@ -114,13 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
     closeMobileNav.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
 
-    // 6. SCROLL REVEAL ANIMATIONS
+    // 6. SCROLL REVEAL (IntersectionObserver — no scroll listener needed)
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
+                revealObserver.unobserve(entry.target); // stop watching once revealed
             }
         });
     }, { threshold: 0.15 });
@@ -128,35 +114,42 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 7. COUNTER ANIMATION
+    //    FIX 10: Added 200ms defer before starting counter + reduced duration to 1200ms.
+    //    Previously started at 2000ms immediately on intersection, competing with
+    //    fonts/images still loading on hero entry. The defer gives the browser
+    //    a moment to settle before kicking off the 60fps rAF loop.
     const stats = document.querySelectorAll('.stat-num');
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const stat = entry.target;
-                const fullText = stat.innerText;
-                const match = fullText.match(/(\d+)(.*)/);
-                if (!match) return;
-
-                const target = parseInt(match[1]);
-                const suffix = match[2];
-                let count = 0;
-                const duration = 2000; // 2 seconds
-                const frameRate = 1000 / 60;
-                const totalFrames = Math.round(duration / frameRate);
-                const increment = target / totalFrames;
-
-                const updateCount = () => {
-                    count += increment;
-                    if (count < target) {
-                        stat.innerText = Math.round(count) + suffix;
-                        requestAnimationFrame(updateCount);
-                    } else {
-                        stat.innerText = target + suffix;
-                    }
-                };
-
-                updateCount();
                 counterObserver.unobserve(stat);
+
+                setTimeout(() => {
+                    const fullText = stat.innerText;
+                    const match = fullText.match(/(\d+)(.*)/);
+                    if (!match) return;
+
+                    const target    = parseInt(match[1]);
+                    const suffix    = match[2];
+                    const duration  = 1200; // was 2000ms — snappier and less main-thread time
+                    const frameRate = 1000 / 60;
+                    const totalFrames = Math.round(duration / frameRate);
+                    const increment = target / totalFrames;
+                    let count = 0;
+
+                    const updateCount = () => {
+                        count += increment;
+                        if (count < target) {
+                            stat.innerText = Math.round(count) + suffix;
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            stat.innerText = target + suffix;
+                        }
+                    };
+
+                    updateCount();
+                }, 200); // defer start by 200ms
             }
         });
     }, { threshold: 0.5 });
@@ -169,22 +162,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
-            faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+            faqItems.forEach(other => other.classList.remove('active'));
             if (!isActive) item.classList.add('active');
         });
     });
 
-    // 9. ADMISSION FORM HANDLING
+    // 9. ADMISSION FORM — WhatsApp redirect
     if (admissionForm) {
         admissionForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const studentName = document.getElementById('studentName').value;
-            const parentName = document.getElementById('parentName').value;
-            const phone = document.getElementById('phone').value;
-            const grade = document.getElementById('grade').value;
-            const school = document.getElementById('school').value;
-            const subjects = document.getElementById('subjectsInterested').value;
+            const parentName  = document.getElementById('parentName').value;
+            const phone       = document.getElementById('phone').value;
+            const grade       = document.getElementById('grade').value;
+            const school      = document.getElementById('school').value;
+            const subjects    = document.getElementById('subjectsInterested').value;
             const userMessage = document.getElementById('message').value;
 
             if (phone.length < 10) {
@@ -193,7 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const phoneNumber = "919600296734";
-            const waMessage = `*New Admission Enquiry - Gurukula Tuitions*%0A%0A` +
+            const waMessage =
+                `*New Admission Enquiry - Gurukula Tuitions*%0A%0A` +
                 `*Student:* ${studentName}%0A` +
                 `*Parent:* ${parentName}%0A` +
                 `*Grade:* ${grade}%0A` +
@@ -215,9 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 10. WHATSAPP FLOATING BUTTON
-    const waToggle = document.getElementById('waToggle');
+    const waToggle  = document.getElementById('waToggle');
     const waOptions = document.getElementById('waOptions');
-    const waGrade = document.getElementById('waGrade');
+    const waGrade   = document.getElementById('waGrade');
     const waSendBtn = document.getElementById('waSendBtn');
 
     if (waToggle && waOptions) {
@@ -241,27 +235,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 11. GALLERY LIGHTBOX
+    //     FIX 11: Lightbox DOM is created once (already was), but we also now
+    //     reuse the existing img element's currentSrc so the browser serves
+    //     from cache instead of making a fresh network request on each open.
     const galleryItems = document.querySelectorAll('.gallery-item');
+
+    // Create lightbox once and reuse
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox-modal';
     lightbox.innerHTML = `
         <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightboxImg">
+        <img class="lightbox-content" id="lightboxImg" decoding="async">
         <div class="lightbox-caption" id="lightboxCaption"></div>
     `;
     document.body.appendChild(lightbox);
 
-    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxImg     = document.getElementById('lightboxImg');
     const lightboxCaption = document.getElementById('lightboxCaption');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const closeBtn        = lightbox.querySelector('.lightbox-close');
 
     galleryItems.forEach(item => {
         item.addEventListener('click', () => {
-            const img = item.querySelector('img');
+            const img     = item.querySelector('img');
             const caption = item.querySelector('span').innerText;
-            lightbox.classList.add('active');
-            lightboxImg.src = img.src;
+
+            // Use currentSrc (respects srcset/cache) with fallback to src
+            lightboxImg.src       = img.currentSrc || img.src;
             lightboxCaption.innerText = caption;
+            lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
     });
@@ -274,5 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
     closeBtn.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
+    });
+
+    // Close lightbox on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
     });
 });
