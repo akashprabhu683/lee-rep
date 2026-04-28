@@ -135,20 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-
                     navLinks.forEach((link) => {
-                        link.classList.remove('active');
-
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                        }
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                     });
                 }
             });
         },
         {
-            threshold: 0.35,
-            rootMargin: '-80px 0px -45% 0px'
+            threshold: 0.5,
+            rootMargin: '-50% 0px -50%'
         }
     );
 
