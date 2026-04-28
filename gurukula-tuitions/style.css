@@ -197,19 +197,22 @@ section {
     height: 3px;
     background: var(--text-dark);
     border-radius: 3px;
-    transition: var(--transition)
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
 }
 
 .hamburger.open span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg)
+    transform: translateY(8px) rotate(45deg);
+    background: var(--primary);
 }
 
 .hamburger.open span:nth-child(2) {
-    opacity: 0
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .hamburger.open span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg)
+    transform: translateY(-8px) rotate(-45deg);
+    background: var(--primary);
 }
 
 /* MOBILE NAV */
@@ -238,8 +241,26 @@ section {
     font-weight: 500;
     color: var(--text-mid);
     border-bottom: 1px solid var(--light-gray);
-    transition: var(--transition)
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease, padding 0.3s ease;
 }
+
+.mobile-nav.open a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mobile-nav.open a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-nav.open a:nth-child(2) { transition-delay: 0.15s; }
+.mobile-nav.open a:nth-child(3) { transition-delay: 0.2s; }
+.mobile-nav.open a:nth-child(4) { transition-delay: 0.25s; }
+.mobile-nav.open a:nth-child(5) { transition-delay: 0.3s; }
+.mobile-nav.open a:nth-child(6) { transition-delay: 0.35s; }
+.mobile-nav.open a:nth-child(7) { transition-delay: 0.4s; }
+.mobile-nav.open a:nth-child(8) { transition-delay: 0.45s; }
+.mobile-nav.open a:nth-child(9) { transition-delay: 0.5s; }
 
 .mobile-nav a:hover {
     color: var(--primary);
@@ -622,6 +643,39 @@ section {
     background: rgba(255, 255, 255, 0.18);
     border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-3px)
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Ripple effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.4) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
 }
 
 .hero-stats {
@@ -1389,13 +1443,37 @@ section {
     font-weight: 500;
     color: var(--text-dark);
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     text-align: center;
+    opacity: 0;
+    transform: translateY(15px);
 }
+
+.wa-menu-container.show .wa-option {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wa-menu-container.show .wa-option:nth-child(2) { transition-delay: 0.05s; }
+.wa-menu-container.show .wa-option:nth-child(3) { transition-delay: 0.1s; }
+.wa-menu-container.show .wa-option:nth-child(4) { transition-delay: 0.15s; }
+.wa-menu-container.show .wa-option:nth-child(5) { transition-delay: 0.2s; }
+.wa-menu-container.show .wa-option:nth-child(6) { transition-delay: 0.25s; }
+.wa-menu-container.show .wa-option:nth-child(7) { transition-delay: 0.3s; }
+.wa-menu-container.show .wa-option:nth-child(8) { transition-delay: 0.35s; }
+.wa-menu-container.show .wa-option:nth-child(9) { transition-delay: 0.4s; }
+.wa-menu-container.show .wa-option:nth-child(10) { transition-delay: 0.45s; }
+.wa-menu-container.show .wa-option:nth-child(11) { transition-delay: 0.5s; }
+.wa-menu-container.show .wa-option:nth-child(12) { transition-delay: 0.55s; }
+.wa-menu-container.show .wa-option:nth-child(13) { transition-delay: 0.6s; }
 
 .wa-option:hover {
     background: #25D366;
     color: var(--white);
+}
+
+.wa-option:active {
+    transform: scale(0.95);
 }
 
 .whatsapp-float {
@@ -1462,6 +1540,10 @@ section {
     flex-direction: column;
     align-items: center;
     flex: 0 1 320px;
+}
+
+.subject-card:active, .why-card:active, .testi-card:active, .fees-card:active, .contact-item:active {
+    transform: scale(0.98);
 }
 
 .fees-card .btn {
@@ -1716,6 +1798,12 @@ section {
 
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer-links a {
+        padding: 8px 0;
+        display: inline-block;
     }
 
     .map-wrapper iframe {

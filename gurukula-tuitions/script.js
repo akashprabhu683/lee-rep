@@ -114,3 +114,8 @@ function animateCounters() {
     });
 }
 window.addEventListener('load', animateCounters);
+
+// Add ripple effect dynamically
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.add('ripple');
+});
