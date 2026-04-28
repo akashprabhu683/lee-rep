@@ -134,8 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - 150)) {
+            if (pageYOffset >= (sectionTop - 100)) {
                 current = section.getAttribute('id');
             }
         });
@@ -246,29 +245,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fix for navigation smooth scroll and section visibility
+    // Navigation smooth scroll handling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (targetId === '#' || !targetId.startsWith('#')) return;
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                e.preventDefault();
-                
-                // If mobile nav is open, close it
+                // Let native CSS scroll handle the position with scroll-padding-top
+                // Just close the mobile nav if it's open
                 if (mobileNav.classList.contains('open')) {
                     toggleMenu();
                 }
-
-                const offset = 120; // Match scroll-padding-top
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
             }
         });
     });
