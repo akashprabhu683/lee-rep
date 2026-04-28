@@ -81,18 +81,32 @@ function sendWAMsg(className) {
 
 // Contact form
 const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const name = document.getElementById('form-name').value;
         const phone = document.getElementById('form-phone').value;
         const msg = document.getElementById('form-message').value;
+        
+        // Prepare mailto link
         const subject = encodeURIComponent(`Admission Inquiry - ${name}`);
         const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\n\nMessage:\n${msg}`);
         window.location.href = `mailto:info@gurukulatuitions.com?subject=${subject}&body=${body}`;
-        this.reset();
-        alert('Thank you ' + name + '! Your email client should now open with your message.');
+        
+        // Show success UI
+        contactForm.style.display = 'none';
+        formSuccess.style.display = 'block';
+        
+        // Reset form data after short delay
+        setTimeout(() => this.reset(), 1000);
     });
+}
+
+function resetFormUI() {
+    contactForm.style.display = 'block';
+    formSuccess.style.display = 'none';
 }
 
 // Counter animation

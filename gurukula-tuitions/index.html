@@ -88,6 +88,12 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
     </section>
 
     <!-- ABOUT -->
@@ -366,14 +372,12 @@
                 <i class="fas fa-map-marker-alt"></i> No. 69, South Tank Street, Tiruvallur – 602001, Tamil Nadu (Near
                 Raghavendra Temple)
             </div>
-<p class="section-subtitle map-action reveal">
-    <a 
-        href="https://www.google.com/maps/search/?api=1&query=13.1437,79.9063"
-        target="_blank"
-        rel="noopener noreferrer">
-        View on Google Maps
-    </a>
-</p>
+            <div class="map-action reveal">
+                <a href="https://www.google.com/maps/search/?api=1&query=13.1437,79.9063"
+                    target="_blank" rel="noopener noreferrer" class="map-link-btn">
+                    <i class="fas fa-map-marked-alt"></i> View on Google Maps
+                </a>
+            </div>
         </div>
     </section>
 
@@ -428,6 +432,12 @@
                         <button type="submit" class="btn-submit"><i class="fas fa-envelope"></i> Send
                             Email</button>
                     </form>
+                    <div id="formSuccess" class="form-success-msg" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Message Sent!</h4>
+                        <p>Thank you for reaching out. We will get back to you shortly.</p>
+                        <button onclick="resetFormUI()" class="btn btn-outline">Send Another</button>
+                    </div>
                 </div>
             </div>
         </div>
