@@ -84,23 +84,45 @@ document.addEventListener('DOMContentLoaded', () => {
         admissionForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Basic validation
+            // Collect Form Data
+            const studentName = document.getElementById('studentName').value;
+            const parentName = document.getElementById('parentName').value;
             const phone = document.getElementById('phone').value;
+            const grade = document.getElementById('grade').value;
+            const school = document.getElementById('school').value;
+            const subjects = document.getElementById('subjectsInterested').value;
+            const userMessage = document.getElementById('message').value;
+
+            // Validation
             if (phone.length < 10) {
                 alert('Please enter a valid 10-digit phone number.');
                 return;
             }
 
-            // Show loading state
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            // Format WhatsApp Message
+            const phoneNumber = "919600296734";
+            const waMessage = `*New Admission Enquiry - Gurukula Tuitions*%0A%0A` +
+                `*Student:* ${studentName}%0A` +
+                `*Parent:* ${parentName}%0A` +
+                `*Grade:* ${grade}%0A` +
+                `*School:* ${school}%0A` +
+                `*Phone:* ${phone}%0A` +
+                `*Subjects:* ${subjects}%0A` +
+                `*Additional Info:* ${userMessage || 'N/A'}`;
+
+            // Show loading state briefly
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to WhatsApp...';
             submitBtn.disabled = true;
 
-            // Mock submission
+            // Redirect to WhatsApp
             setTimeout(() => {
+                window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
+                
+                // Show success state on site
                 admissionForm.style.display = 'none';
                 formSuccess.style.display = 'block';
                 formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 1500);
+            }, 1000);
         });
     }
 
@@ -239,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     toggleMenu();
                 }
 
-                const offset = 100; // Match scroll-padding-top
+                const offset = 120; // Match scroll-padding-top
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offset;
 
