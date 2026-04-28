@@ -160,30 +160,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const stats = document.querySelectorAll('.stat-num');
     stats.forEach(stat => {
         const fullText = stat.innerText;
-        const target = parseInt(fullText);
-        const suffix = fullText.replace(/[0-9]/g, ''); // Extract everything that isn't a number
+        const match = fullText.match(/(\d+)(.*)/);
+        if (!match) return;
         
-        if (!isNaN(target)) {
-            let count = 0;
-            const updateCount = () => {
-                const speed = target / 40;
-                if (count < target) {
-                    count += speed;
-                    stat.innerText = Math.ceil(count) + suffix;
-                    setTimeout(updateCount, 25);
-                } else {
-                    stat.innerText = target + suffix;
-                }
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    updateCount();
-                    observer.unobserve(entries[0].target);
-                }
-            }, { threshold: 0.5 });
-            observer.observe(stat);
-        }
+        const target = parseInt(match[1]);
+        const suffix = match[2];
+        
+        let count = 0;
+        const updateCount = () => {
+            const speed = target / 40;
+            if (count < target) {
+                count += speed;
+                stat.innerText = Math.ceil(count) + suffix;
+                setTimeout(updateCount, 25);
+            } else {
+                stat.innerText = target + suffix;
+            }
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                updateCount();
+                observer.unobserve(entries[0].target);
+            }
+        }, { threshold: 0.5 });
+        observer.observe(stat);
     });
 
     // 8. GALLERY LIGHTBOX
@@ -255,11 +256,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // CLOSE MOBILE NAV ON LINK CLICK
-    mobileLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            if (mobileNav.classList.contains('open')) {
-                toggleMenu();
+    // SMOOTH SCROLL WITH PRECISE OFFSET
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId.startsWith('#')) return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Close mobile nav if open
+                if (mobileNav.classList.contains('open')) {
+                    toggleMenu();
+                }
+
+                const navHeight = 82;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
             }
         });
     });

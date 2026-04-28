@@ -49,7 +49,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+    scroll-padding-top: 82px;
 }
 
 body {
@@ -1425,9 +1425,9 @@ section {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -1435,15 +1435,17 @@ section {
     justify-content: center;
     cursor: pointer;
     border: none;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 8px 24px rgba(30, 64, 175, 0.3);
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
 }
 
 .back-to-top:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(30, 64, 175, 0.4);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
 .btn,
