@@ -4,17 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTop = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
+        // Sticky navbar style
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        
+
+        // Back to top visibility
         if (window.scrollY > 500) {
             backToTop.classList.add('show');
         } else {
             backToTop.classList.remove('show');
         }
+
+        // Active nav link
+        updateActiveNav();
     }, { passive: true });
 
     backToTop.addEventListener('click', () => {
@@ -51,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('active');
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
 
     revealElements.forEach(el => revealObserver.observe(el));
 
