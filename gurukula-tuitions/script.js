@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             backToTop.classList.remove('show');
         }
-    });
+    }, { passive: true });
 
     backToTop.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -126,25 +126,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. ACTIVE NAV LINK ON SCROLL
-    const sections = document.querySelectorAll('section, header');
+    // 6. ACTIVE NAVIGATION WITH INTERSECTION OBSERVER
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    window.addEventListener('scroll', () => {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= (sectionTop - 100)) {
-                current = section.getAttribute('id');
-            }
-        });
+    const navObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === current) {
-                link.classList.add('active');
-            }
-        });
+                    navLinks.forEach((link) => {
+                        link.classList.remove('active');
+
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        },
+        {
+            threshold: 0.35,
+            rootMargin: '-80px 0px -45% 0px'
+        }
+    );
+
+    sections.forEach((section) => {
+        navObserver.observe(section);
     });
 
     // 7. COUNTER ANIMATION
@@ -173,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entries[0].target);
                 }
             }, { threshold: 0.5 });
+            observer.observe(stat);
         }
     });
 
@@ -245,19 +255,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Navigation smooth scroll handling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#' || !targetId.startsWith('#')) return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Let native CSS scroll handle the position with scroll-padding-top
-                // Just close the mobile nav if it's open
-                if (mobileNav.classList.contains('open')) {
-                    toggleMenu();
-                }
+    // CLOSE MOBILE NAV ON LINK CLICK
+    mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            if (mobileNav.classList.contains('open')) {
+                toggleMenu();
             }
         });
     });
