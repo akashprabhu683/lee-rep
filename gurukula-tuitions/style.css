@@ -47,7 +47,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 100px; /* Increased to avoid showing previous section */
 }
 
 body {
@@ -1450,7 +1450,93 @@ section {
     opacity: 1;
 }
 
-/* RESPONSIVE STYLES */
+/* WhatsApp Selector Popup */
+.wa-options {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 280px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 1000;
+    border: 1px solid var(--border);
+    animation: fadeUp 0.3s ease-out;
+}
+
+@media (max-width: 480px) {
+    .wa-options {
+        width: 240px;
+        padding: 20px;
+        bottom: 75px;
+    }
+}
+
+.wa-options.active {
+    display: flex;
+}
+
+.wa-options-header {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wa-options-header i {
+    color: #25D366;
+}
+
+.wa-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.wa-field label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.wa-field select {
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-weight: 600;
+    outline: none;
+}
+
+.wa-field select:focus {
+    border-color: var(--primary);
+}
+
+#waSendBtn {
+    background: #25D366;
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#waSendBtn:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
 @media (max-width: 1200px) {
     .footer-top {
         gap: 40px;

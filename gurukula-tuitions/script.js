@@ -193,4 +193,61 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
+
+    // 9. WHATSAPP ENQUIRY LOGIC
+    const waToggle = document.getElementById('waToggle');
+    const waOptions = document.getElementById('waOptions');
+    const waGrade = document.getElementById('waGrade');
+    const waSendBtn = document.getElementById('waSendBtn');
+
+    if (waToggle && waOptions) {
+        waToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            waOptions.classList.toggle('active');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!waOptions.contains(e.target) && e.target !== waToggle) {
+                waOptions.classList.remove('active');
+            }
+        });
+
+        waSendBtn.addEventListener('click', () => {
+            const grade = waGrade.value;
+            const phoneNumber = "919600296734";
+            const message = `Hello Gurukula Tuitions, I am interested in enrolling my child (Class ${grade}) in your institute. I would like to know more about the batch timings, fee structure, and other necessary admission details. Could you please provide this information? Thank you.`;
+            
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            waOptions.classList.remove('active');
+        });
+    }
+
+    // Fix for navigation smooth scroll and section visibility
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                
+                // If mobile nav is open, close it
+                if (mobileNav.classList.contains('open')) {
+                    toggleMenu();
+                }
+
+                const offset = 100; // Match scroll-padding-top
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
 });
