@@ -4,349 +4,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Gurukula Tuitions - Building Strong Foundations for Academic Success. Quality tuition for classes 1-12, State Board & CBSE in Tiruvallur, Tamil Nadu.">
-    <title>Gurukula Tuitions | Quality Education in Tiruvallur</title>
+    <title>Gurukula Tuitions | Leading Tuition Institute in Tiruvallur</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Gurukula Tuitions in Tiruvallur - Professional coaching for Classes 1-12 (CBSE & State Board). Expert faculty, personalized attention, and a track record of academic excellence since 2014.">
+    <meta name="keywords" content="tuition center Tiruvallur, best tuitions in Tiruvallur, CBSE tuition, State Board coaching, Maths tuition Tiruvallur, Science classes">
+    <meta name="author" content="Gurukula Tuitions">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Gurukula Tuitions | Empowering Academic Excellence">
+    <meta property="og:description" content="Nurturing young minds in Tiruvallur with expert guidance and small batch sizes. Join the success story at Gurukula Tuitions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gurukulatuitions.com">
+    <meta property="og:image" content="https://gurukulatuitions.com/assets/og-image.jpg">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
-        <div class="nav-inner">
-            <a href="#home" class="nav-logo"><i class="fas fa-graduation-cap"></i>Gurukula Tuitions</a>
-            <div class="nav-links" id="navLinks">
-                <a href="#home" class="active">Home</a><a href="#about">About</a><a href="#subjects">Subjects</a><a href="#fees">Fees</a>
-                <a href="#why">Why Us</a><a href="#timings">Timings</a><a href="#testimonials">Reviews</a>
-                <a href="#location">Location</a><a href="#contact">Contact</a>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#home" class="nav-logo" aria-label="Gurukula Tuitions Home">
+                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <span>Gurukula<span>Tuitions</span></span>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#why">Why Us</a>
+                    <a href="#subjects">Programs</a>
+                    <a href="#faculty">Faculty</a>
+                    <a href="#admission" class="nav-cta">Enroll Now</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="tel:+919600296734" class="call-btn" aria-label="Call Us"><i class="fas fa-phone-alt"></i></a>
+                    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
+
     <div class="overlay" id="overlay"></div>
     <div class="mobile-nav" id="mobileNav">
-        <a href="#home">Home</a><a href="#about">About</a><a href="#subjects">Subjects</a><a href="#fees">Fees</a>
-        <a href="#why">Why Us</a><a href="#timings">Timings</a><a href="#testimonials">Reviews</a>
-        <a href="#location">Location</a><a href="#contact">Contact</a>
+        <div class="mobile-nav-header">
+            <div class="nav-logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span>Gurukula</span>
+            </div>
+            <button class="close-mobile-nav" id="closeMobileNav">&times;</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#why">Why Choose Us</a>
+            <a href="#subjects">Programs & Fees</a>
+            <a href="#faculty">Our Faculty</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#faq">FAQs</a>
+            <a href="#admission" class="mobile-cta">Admission Enquiry</a>
+        </div>
     </div>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        <div class="hero-particles">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-bg-glow"></div>
         <div class="container">
-            <div class="hero-inner">
+            <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="hero-badge"><i class="fas fa-star"></i> Trusted by 500+ Families in Tiruvallur</div>
-                    <h1>Building Strong Foundations for <span>Academic Success</span></h1>
-                    <p>Empowering students from classes 1 to 12 with expert guidance, personalized attention, and a
-                        passion for learning — right here in Tiruvallur.</p>
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Enroll Now</a>
-                        <a href="#subjects" class="btn btn-outline"><i class="fas fa-book-open"></i> Explore
-                            Subjects</a>
+                    <div class="hero-label fade-up">
+                        <span class="label-dot"></span>
+                        Tiruvallur's Most Trusted Learning Center
                     </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <h3 data-count="10">0+</h3>
-                            <p>Years of Teaching</p>
+                    <h1 class="fade-up" style="animation-delay: 0.1s;">Nurturing Minds for <span>Future Success</span></h1>
+                    <p class="fade-up" style="animation-delay: 0.2s;">Transforming academic performance through personalized coaching, expert guidance, and a foundation-first learning approach for Classes 1–12.</p>
+                    <div class="hero-ctas fade-up" style="animation-delay: 0.3s;">
+                        <a href="#admission" class="btn btn-primary btn-lg">Start Free Demo <i class="fas fa-arrow-right"></i></a>
+                        <a href="#subjects" class="btn btn-ghost btn-lg">View Programs</a>
+                    </div>
+                    <div class="hero-trust fade-up" style="animation-delay: 0.4s;">
+                        <div class="trust-avatars">
+                            <img src="https://ui-avatars.com/api/?name=S&background=1E40AF&color=fff" alt="Student">
+                            <img src="https://ui-avatars.com/api/?name=A&background=F59E0B&color=fff" alt="Student">
+                            <img src="https://ui-avatars.com/api/?name=P&background=10B981&color=fff" alt="Student">
+                            <span class="avatar-plus">+500</span>
                         </div>
-                        <div class="hero-stat">
-                            <h3 data-count="500">0+</h3>
-                            <p>Students Guided</p>
-                        </div>
-                        <div class="hero-stat">
-                            <h3 data-count="95">0%</h3>
-                            <p>Pass Rate</p>
+                        <div class="trust-text">
+                            <strong>1000+ Success Stories</strong>
+                            <span>Join the Gurukula family today</span>
                         </div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="hero-illustration">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span class="tagline">Gurukula Tuitions</span>
-                        <span class="sub-tagline">Since 2014 • Tiruvallur</span>
+                <div class="hero-visual fade-in">
+                    <div class="visual-card">
+                        <div class="card-badge"><i class="fas fa-award"></i> Since 2014</div>
+                        <div class="card-content">
+                            <div class="stat-item">
+                                <span class="stat-num">98%</span>
+                                <span class="stat-label">Distinction Rate</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="stat-item">
+                                <span class="stat-num">15:1</span>
+                                <span class="stat-label">Student Ratio</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <i class="fas fa-check-circle"></i> ISO Certified Institute
+                        </div>
                     </div>
+                    <div class="visual-blob"></div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-        </div>
-    </section>
+    </header>
 
-    <!-- ABOUT -->
+    <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-img reveal">
-                    <i class="fas fa-university"></i>
-                    <h3>Gurukula Tuitions</h3>
-                    <p>Providing excellence in education since 2014.</p>
-                </div>
-                <div class="about-content reveal">
-                    <span class="section-badge">Welcome</span>
-                    <h2 class="section-title">Nurturing Minds, Shaping Futures</h2>
-                    <p class="section-subtitle" style="margin:0 0 30px; text-align:left">At Gurukula, we believe every
-                        student has the potential to excel. Our mission is to provide the right guidance and environment
-                        to unlock that potential.</p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <div class="icon"><i class="fas fa-user-graduate"></i></div>
-                            <div>
-                                <h4>Expert Mentorship</h4>
-                                <p>Learn from Jayakanth sir and other experienced educators.</p>
-                            </div>
+                <div class="about-visual reveal">
+                    <div class="about-img-box">
+                        <div class="experience-badge">
+                            <strong>10+</strong>
+                            <span>Years of Trust</span>
                         </div>
-                        <div class="about-feature">
-                            <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                            <div>
-                                <h4>Modern Techniques</h4>
-                                <p>Interactive methods to make learning engaging and effective.</p>
-                            </div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="icon"><i class="fas fa-award"></i></div>
-                            <div>
-                                <h4>Proven Results</h4>
-                                <p>Consistently high performance in board exams year after year.</p>
-                            </div>
-                        </div>
+                        <i class="fas fa-university main-icon"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUBJECTS -->
-    <section class="subjects" id="subjects">
-        <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Our Curriculum</span>
-                <h2 class="section-title">Comprehensive Subject Coverage</h2>
-                <p class="section-subtitle">Expert coaching across all major subjects for classes 1 through 12.</p>
-            </div>
-            <div class="subjects-grid">
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-calculator"></i></div>
-                    <h4>Mathematics</h4>
-                    <p>Classes 1–12</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-atom"></i></div>
-                    <h4>Physics</h4>
-                    <p>Classes 6–12</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-flask"></i></div>
-                    <h4>Chemistry</h4>
-                    <p>Classes 6–12</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-dna"></i></div>
-                    <h4>Biology</h4>
-                    <p>Classes 6–12</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-book"></i></div>
-                    <h4>English</h4>
-                    <p>Classes 1–12</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-globe-asia"></i></div>
-                    <h4>Social Science</h4>
-                    <p>Classes 6–10</p>
-                </div>
-                <div class="subject-card reveal">
-                    <div class="icon"><i class="fas fa-chart-line"></i></div>
-                    <h4>Commerce</h4>
-                    <p>Classes 11–12</p>
-                </div>
-            </div>
-            <div class="boards-info reveal">
-                <span class="board-tag"><i class="fas fa-check-circle"></i>&nbsp; Tamil Nadu State Board</span>
-                <span class="board-tag"><i class="fas fa-check-circle"></i>&nbsp; CBSE</span>
-            </div>
-        </div>
-    </section>
- 
-    <!-- FEES -->
-    <section class="fees" id="fees">
-        <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Investment</span>
-                <h2 class="section-title">Affordable Fee Structure</h2>
-                <p class="section-subtitle">Quality education that fits your budget. We focus on value and results.</p>
-            </div>
-            <div class="fees-grid">
-                <div class="fees-card reveal">
-                    <h4>Primary</h4>
-                    <p>Classes 1 – 5</p>
-                    <div class="fees-price">₹1,500<span> / Month</span></div>
-                    <ul class="fees-features">
-                        <li><i class="fas fa-check"></i> All Major Subjects</li>
-                        <li><i class="fas fa-check"></i> Basic Concepts</li>
-                        <li><i class="fas fa-check"></i> Homework Support</li>
-                        <li><i class="fas fa-check"></i> Monthly Tests</li>
+                <div class="about-info reveal">
+                    <span class="badge">About Our Institute</span>
+                    <h2 class="section-title">Where Learning Meets Excellence</h2>
+                    <p>Gurukula Tuitions was founded with a single mission: to provide quality, affordable coaching that focuses on conceptual understanding rather than rote memorization. Over the past decade, we have helped hundreds of students in Tiruvallur achieve their academic goals and build strong foundations for their future careers.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check-circle"></i> Individualized attention for every learner.</li>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive coverage of CBSE & State Board syllabus.</li>
+                        <li><i class="fas fa-check-circle"></i> Regular assessments and performance tracking.</li>
+                        <li><i class="fas fa-check-circle"></i> Conducive and safe learning environment.</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Apply Now</a>
-                </div>
-                <div class="fees-card popular reveal">
-                    <h4>Middle & High</h4>
-                    <p>Classes 6 – 10</p>
-                    <div class="fees-price">₹2,500<span> / Month</span></div>
-                    <ul class="fees-features">
-                        <li><i class="fas fa-check"></i> Special Maths & Science</li>
-                        <li><i class="fas fa-check"></i> Concept Mastering</li>
-                        <li><i class="fas fa-check"></i> Board Preparation</li>
-                        <li><i class="fas fa-check"></i> Weekly Assessments</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center">Apply Now</a>
-                </div>
-                <div class="fees-card reveal">
-                    <h4>Secondary</h4>
-                    <p>Classes 11 – 12</p>
-                    <div class="fees-price">₹3,500<span> / Month</span></div>
-                    <ul class="fees-features">
-                        <li><i class="fas fa-check"></i> Major Stream Subjects</li>
-                        <li><i class="fas fa-check"></i> Entrance Coaching</li>
-                        <li><i class="fas fa-check"></i> Intensive Practice</li>
-                        <li><i class="fas fa-check"></i> Career Guidance</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Apply Now</a>
+                    <a href="#admission" class="btn btn-primary">Join Our Next Batch</a>
                 </div>
             </div>
-            <p class="text-center reveal" style="margin-top:40px; font-size:0.9rem; color:var(--text-light)">* Fees may vary based on specific subjects and batch requirements.</p>
         </div>
     </section>
 
     <!-- WHY CHOOSE US -->
     <section class="why" id="why">
         <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Why Choose Us</span>
-                <h2 class="section-title">What Sets Us Apart</h2>
-                <p class="section-subtitle">We go beyond textbooks to build confident, capable learners.</p>
+            <div class="section-header reveal">
+                <span class="badge">Why Gurukula?</span>
+                <h2 class="section-title">The Gurukula Advantage</h2>
+                <p class="section-desc">We offer a unique blend of traditional values and modern teaching techniques.</p>
             </div>
             <div class="why-grid">
-                <div class="why-card reveal"><i class="fas fa-user-friends"></i>
-                    <h4>Small Batch Sizes</h4>
-                    <p>Limited students per batch ensures focused, personalized teaching for every child.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Individual Attention</h4>
+                    <p>We limit our batch sizes to 15 students to ensure that every child receives the personal guidance they need from our expert faculty.</p>
                 </div>
-                <div class="why-card reveal"><i class="fas fa-lightbulb"></i>
-                    <h4>Concept-Based Teaching</h4>
-                    <p>We emphasize understanding over memorization, building a strong conceptual foundation.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h4>Expert Faculty</h4>
+                    <p>Our educators are not just teachers; they are mentors with over 10 years of experience in specialized subject coaching.</p>
                 </div>
-                <div class="why-card reveal"><i class="fas fa-file-alt"></i>
-                    <h4>Regular Tests & Assessments</h4>
-                    <p>Frequent evaluations to track progress and identify areas for improvement.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>Regular Assessments</h4>
+                    <p>Weekly tests and monthly comprehensive exams help track progress and identify areas that need extra focus.</p>
                 </div>
-                <div class="why-card reveal"><i class="fas fa-comments"></i>
-                    <h4>Parent-Teacher Communication</h4>
-                    <p>Regular updates and meetings to keep parents informed about their child's progress.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Concept-Based Learning</h4>
+                    <p>We believe in deep-diving into subjects to ensure students understand the 'why' behind every concept they learn.</p>
                 </div>
-                <div class="why-card reveal"><i class="fas fa-rupee-sign"></i>
-                    <h4>Affordable Fees</h4>
-                    <p>Quality education at accessible pricing, because every child deserves the best.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Parent Updates</h4>
+                    <p>Transparent communication with parents through regular meetings and detailed progress reports every month.</p>
                 </div>
-                <div class="why-card reveal"><i class="fas fa-map-marker-alt"></i>
-                    <h4>Convenient Location</h4>
-                    <p>Centrally located in Tiruvallur, easily accessible from all parts of the town.</p>
+                <div class="why-card reveal">
+                    <div class="card-icon"><i class="fas fa-clock"></i></div>
+                    <h4>Flexible Timings</h4>
+                    <p>Batch schedules are carefully planned to align with school hours, ensuring students maintain a healthy study-life balance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TIMINGS -->
-    <section id="timings">
+    <!-- PROGRAMS SECTION -->
+    <section class="subjects" id="subjects">
         <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Timings</span>
-                <h2 class="section-title">Class Schedule</h2>
-                <p class="section-subtitle">Structured timings designed around school hours for your convenience.</p>
+            <div class="section-header reveal">
+                <span class="badge">Our Programs</span>
+                <h2 class="section-title">Comprehensive Coaching for All Grades</h2>
+                <p class="section-desc">Tailored educational programs for CBSE and State Board students.</p>
             </div>
-            <div class="timings-wrapper reveal">
-                <div class="timing-row"><span class="day"><i class="fas fa-calendar-day"></i> Monday –
-                        Friday</span><span class="time">5:00 PM – 8:00 PM</span></div>
-                <div class="timing-row"><span class="day"><i class="fas fa-calendar-day"></i> Saturday</span><span
-                        class="time">4:30 PM – 8:00 PM</span></div>
-                <div class="timing-row"><span class="day"><i class="fas fa-calendar-day"></i> Sunday</span><span
-                        class="time">Optional / Special Classes</span></div>
+            <div class="programs-grid">
+                <div class="program-card reveal">
+                    <div class="card-header">
+                        <i class="fas fa-child"></i>
+                        <h3>Primary Wing</h3>
+                        <p>Classes 1 – 5</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">1,500</span>
+                        <span class="period">/ Month</span>
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> All Major Subjects</li>
+                        <li><i class="fas fa-check"></i> Handwriting Mastery</li>
+                        <li><i class="fas fa-check"></i> Basic Arithmetic</li>
+                        <li><i class="fas fa-check"></i> Interactive Sessions</li>
+                    </ul>
+                    <a href="#admission" class="btn btn-outline-primary">Enquire Now</a>
+                </div>
+                <div class="program-card popular reveal">
+                    <div class="popular-tag">Most Recommended</div>
+                    <div class="card-header">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Middle & High</h3>
+                        <p>Classes 6 – 10</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">2,500</span>
+                        <span class="period">/ Month</span>
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> Science & Maths Mastery</li>
+                        <li><i class="fas fa-check"></i> Board Exam Prep</li>
+                        <li><i class="fas fa-check"></i> Language Skills</li>
+                        <li><i class="fas fa-check"></i> Mock Test Series</li>
+                    </ul>
+                    <a href="#admission" class="btn btn-primary">Enquire Now</a>
+                </div>
+                <div class="program-card reveal">
+                    <div class="card-header">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Higher Secondary</h3>
+                        <p>Classes 11 – 12</p>
+                    </div>
+                    <div class="card-price">
+                        <span class="currency">₹</span>
+                        <span class="amount">3,500</span>
+                        <span class="period">/ Month</span>
+                    </div>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> Stream-Specific Coaching</li>
+                        <li><i class="fas fa-check"></i> Intensive Practice</li>
+                        <li><i class="fas fa-check"></i> Board Strategies</li>
+                        <li><i class="fas fa-check"></i> Career Guidance</li>
+                    </ul>
+                    <a href="#admission" class="btn btn-outline-primary">Enquire Now</a>
+                </div>
+            </div>
+            <div class="subjects-list-wrapper reveal">
+                <h4>Specialized Subject Expertise:</h4>
+                <div class="subject-tags">
+                    <span>Mathematics</span>
+                    <span>Physics</span>
+                    <span>Chemistry</span>
+                    <span>Biology</span>
+                    <span>English</span>
+                    <span>Economics</span>
+                    <span>Accountancy</span>
+                    <span>Computer Science</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- FACULTY SECTION -->
+    <section class="faculty" id="faculty">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">Meet Our Mentors</span>
+                <h2 class="section-title">Dedicated Experts Behind Our Success</h2>
+                <p class="section-desc">Learn from educators who are passionate about teaching and committed to student growth.</p>
+            </div>
+            <div class="faculty-grid">
+                <div class="faculty-card reveal">
+                    <div class="faculty-img">
+                        <img src="https://ui-avatars.com/api/?name=Jayakanth+Sir&background=1E40AF&color=fff&size=400" alt="Jayakanth Sir">
+                    </div>
+                    <div class="faculty-info">
+                        <h4>Jayakanth Sir</h4>
+                        <span class="designation">Founder & Lead Mathematics</span>
+                        <p>12+ years experience in board exam preparation and higher secondary coaching.</p>
+                        <div class="expertise">Expertise: Higher Math Specialist</div>
+                    </div>
+                </div>
+                <div class="faculty-card reveal">
+                    <div class="faculty-img">
+                        <img src="https://ui-avatars.com/api/?name=Meenakshi+Mam&background=F59E0B&color=fff&size=400" alt="Faculty member">
+                    </div>
+                    <div class="faculty-info">
+                        <h4>Dr. S. Meenakshi</h4>
+                        <span class="designation">Senior Science Mentor</span>
+                        <p>Ph.D. holder with a focus on making Physics and Chemistry easy to grasp for students.</p>
+                        <div class="expertise">Expertise: Physics & Chemistry (9-12)</div>
+                    </div>
+                </div>
+                <div class="faculty-card reveal">
+                    <div class="faculty-img">
+                        <img src="https://ui-avatars.com/api/?name=Rajesh+Sir&background=10B981&color=fff&size=400" alt="Faculty member">
+                    </div>
+                    <div class="faculty-info">
+                        <h4>Mr. R. Rajesh</h4>
+                        <span class="designation">English Language Expert</span>
+                        <p>Expert in grammar and communication, focusing on building student confidence.</p>
+                        <div class="expertise">Expertise: English & Soft Skills</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">Inside Gurukula</span>
+                <h2 class="section-title">Our Learning Environment</h2>
+                <p class="section-desc">Take a glimpse into our modern classrooms and vibrant study sessions.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" alt="Classroom Environment">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Classroom Setup</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="Students Studying">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Study Session</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef1460375e?q=80&w=800&auto=format&fit=crop" alt="Interactive Teaching">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Teaching Session</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop" alt="Student Writing">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Individual Focus</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" alt="Success Celebration">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Celebrating Success</span>
+                    </div>
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop" alt="Learning Resources">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>Resource Center</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISSION SECTION -->
+    <section class="admission" id="admission">
+        <div class="container">
+            <div class="admission-grid">
+                <div class="admission-info reveal">
+                    <span class="badge">Join Us Now</span>
+                    <h2 class="section-title">Take the First Step Toward Academic Success</h2>
+                    <p>Submit your details to book a free demo class or ask about batch availability. We look forward to helping you achieve your dreams.</p>
+                    <div class="contact-methods">
+                        <div class="method-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h5>Call for Admission</h5>
+                                <a href="tel:+919600296734">+91 96002 96734</a>
+                            </div>
+                        </div>
+                        <div class="method-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h5>WhatsApp Enquiry</h5>
+                                <a href="https://wa.me/919600296734" target="_blank">Chat on WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admission-form-card reveal">
+                    <form id="admissionForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="studentName">Student Name</label>
+                                <input type="text" id="studentName" placeholder="e.g. Rahul Kumar" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parentName">Parent Name</label>
+                                <input type="text" id="parentName" placeholder="e.g. Mr. Rajesh" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="10-digit mobile number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="grade">Class/Grade</label>
+                                <select id="grade" required>
+                                    <option value="" disabled selected>Select Grade</option>
+                                    <option value="1-5">Primary (1-5)</option>
+                                    <option value="6-8">Middle (6-8)</option>
+                                    <option value="9-10">High (9-10)</option>
+                                    <option value="11-12">Higher Sec (11-12)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="school">School Name</label>
+                            <input type="text" id="school" placeholder="e.g. Tiruvallur Public School">
+                        </div>
+                        <div class="form-group">
+                            <label for="subjects">Subjects Interested</label>
+                            <input type="text" id="subjectsInterested" placeholder="e.g. Mathematics, Science">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message/Notes (Optional)</label>
+                            <textarea id="message" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            Submit Admission Enquiry
+                        </button>
+                    </form>
+                    <div id="formSuccess" class="success-message">
+                        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Successfully Submitted!</h3>
+                        <p>We have received your enquiry. Our team will contact you within 24 hours.</p>
+                        <button class="btn btn-outline-primary" onclick="window.location.reload()">Send Another</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="badge">FAQs</span>
+                <h2 class="section-title">Common Questions</h2>
+                <p class="section-desc">Clear answers to help you make the best choice for your education.</p>
+            </div>
+            <div class="faq-accordion reveal">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the batch size at Gurukula?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To ensure individual attention, we maintain a strict batch size of maximum 15 students per group.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide demo classes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer two free demo classes for all new students to experience our teaching methodology before enrolling.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you track student progress?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We conduct weekly tests and monthly assessments. Progress reports are shared with parents through regular monthly meetings.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are the batch timings?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Batch timings are generally scheduled between 5:00 PM and 8:30 PM on weekdays, keeping school hours in mind.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you coach for both CBSE and State Board?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we have specialized study materials and teaching strategies for both CBSE and State Board curriculum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Testimonials</span>
-                <h2 class="section-title">What Parents & Students Say</h2>
-                <p class="section-subtitle">Real feedback from the families we've had the privilege to serve.</p>
+            <div class="section-header reveal">
+                <span class="badge">Success Stories</span>
+                <h2 class="section-title">Trusted by Parents & Students</h2>
+                <p class="section-desc">Hear directly from those who have experienced the Gurukula difference.</p>
             </div>
             <div class="testi-grid">
                 <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Jayakanth sir is an exceptionally talented and experienced Maths teacher. He not only teaches concepts clearly but also understands students' psychology, helping them overcome fear and build confidence in the subject."</blockquote>
-                    <div class="author">
-                        <div class="avatar">D</div>
-                        <div class="author-info">
+                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Jayakanth sir is an exceptionally talented teacher. He helped my son overcome his fear of Mathematics and score 95% in his boards."</p>
+                    <div class="testi-user">
+                        <div class="user-avatar">D</div>
+                        <div class="user-info">
                             <h5>Dhana Jayan</h5>
-                            <p>Parent (Maths Specialist)</p>
+                            <span>Parent</span>
                         </div>
                     </div>
                 </div>
                 <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Wonderful experience! The tutors are knowledgeable, patient, and make complex concepts easy to understand."</blockquote>
-                    <div class="author">
-                        <div class="avatar">S</div>
-                        <div class="author-info">
+                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The small batch size really helped. I could ask doubts freely and the concepts were explained with real-life examples."</p>
+                    <div class="testi-user">
+                        <div class="user-avatar">S</div>
+                        <div class="user-info">
                             <h5>Siva Shankar</h5>
-                            <p>Parent & Student Mentor</p>
+                            <span>Student (Class 12)</span>
                         </div>
                     </div>
                 </div>
                 <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Mr. Jayakanth is a young and energetic teacher who is absolutely updated to relevant sources and capable of producing smart and disciplined students who can be nation builders of the near future."</blockquote>
-                    <div class="author">
-                        <div class="avatar">T</div>
-                        <div class="author-info">
-                            <h5>Tony Geokul</h5>
-                            <p>Education Professional</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card reveal">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>"Actually i am getting 40 out of 100 but after joining gurukula. Jayakanth sir made me to get 100/100 for board exam."</blockquote>
-                    <div class="author">
-                        <div class="avatar">Z</div>
-                        <div class="author-info">
-                            <h5>Roronoa Zoro</h5>
-                            <p>Student (Board Exam Achiever)</p>
+                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"I was struggling with Science, but Dr. Meenakshi's teaching style made everything so clear. Highly recommended!"</p>
+                    <div class="testi-user">
+                        <div class="user-avatar">R</div>
+                        <div class="user-info">
+                            <h5>Ramya K.</h5>
+                            <span>Class 10 Student</span>
                         </div>
                     </div>
                 </div>
@@ -354,169 +569,90 @@
         </div>
     </section>
 
-    <!-- LOCATION -->
-    <section id="location">
+    <!-- LOCATION SECTION -->
+    <section id="location" class="location">
         <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Find Us</span>
-                <h2 class="section-title">Our Location</h2>
-                <p class="section-subtitle">Visit us near Raghavendra Temple, right in the heart of Tiruvallur.</p>
-            </div>
-            <div class="map-wrapper reveal">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.6!2d79.9063!3d13.1437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA4JzM3LjMiTiA3OcKwNTQnMjIuNyJF!5e0!3m2!1sen!2sin!4v1714240000000!5m2!1sen!2sin"
-                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                    title="Gurukula Tuitions Location"></iframe>
-            </div>
-            <div class="address-bar reveal">
-                <i class="fas fa-map-marker-alt"></i> No. 69, South Tank Street, Tiruvallur – 602001, Tamil Nadu (Near
-                Raghavendra Temple)
-            </div>
-            <div class="map-action reveal">
-                <a href="https://www.google.com/maps/search/?api=1&query=13.1437,79.9063"
-                    target="_blank" rel="noopener noreferrer" class="map-link-btn">
-                    <i class="fas fa-map-marked-alt"></i> View on Google Maps
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="text-center reveal">
-                <span class="section-badge">Get in Touch</span>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Ready to give your child the best education? Reach out today!</p>
-            </div>
-            <div class="contact-grid">
-                <div class="contact-info reveal">
-                    <a href="tel:+919600296734" class="contact-item">
-                        <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div>
-                            <h5>Call Us</h5>
-                            <p>+91 96002 96734</p>
-                        </div>
-                    </a>
-                    <div class="contact-item" id="contactWhatsApp" style="cursor: pointer;">
-                        <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
-                        <div>
-                            <h5>WhatsApp</h5>
-                            <p>+91 96002 96734</p>
-                        </div>
-                    </div>
-                    <a href="#location" class="contact-item">
-                        <div class="ci-icon"><i class="fas fa-map-pin"></i></div>
-                        <div>
-                            <h5>Visit Us</h5>
-                            <p>No. 69, South Tank Street, Tiruvallur – 602001</p>
-                        </div>
-                    </a>
-                    <a href="#timings" class="contact-item">
-                        <div class="ci-icon"><i class="fas fa-clock"></i></div>
-                        <div>
-                            <h5>Working Hours</h5>
-                            <p>Mon–Sat: 5:00 PM – 8:00 PM</p>
-                        </div>
-                    </a>
+            <div class="location-grid">
+                <div class="location-map reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.6!2d79.9063!3d13.1437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA4JzM3LjMiTiA3OcKwNTQnMjIuNyJF!5e0!3m2!1sen!2sin!4v1714240000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" title="Gurukula Tuitions Location"></iframe>
                 </div>
-                <div class="contact-form reveal">
-                    <h3><i class="fas fa-envelope"></i> Send an Email</h3>
-                    <form id="contactForm">
-                        <div class="form-group"><input type="text" id="form-name" placeholder="Your Name" required>
+                <div class="location-info reveal">
+                    <span class="badge">Visit Us</span>
+                    <h2>Easy to Find, Easy to Reach</h2>
+                    <p>Centrally located in Tiruvallur, our institute provides a safe and quiet environment perfect for focused learning.</p>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>No. 69, South Tank Street, Tiruvallur – 602001, Tamil Nadu</span>
                         </div>
-                        <div class="form-group"><input type="tel" id="form-phone" placeholder="Phone Number" required>
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Open: Mon - Sat (5:00 PM - 8:30 PM)</span>
                         </div>
-                        <div class="form-group"><textarea id="form-message" placeholder="Your Message"
-                                required></textarea></div>
-                        <button type="submit" class="btn-submit"><i class="fas fa-envelope"></i> Send
-                            Email</button>
-                    </form>
-                    <div id="formSuccess" class="form-success-msg" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <h4>Message Sent!</h4>
-                        <p>Thank you for reaching out. We will get back to you shortly.</p>
-                        <button onclick="resetFormUI()" class="btn btn-outline">Send Another</button>
                     </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=13.1437,79.9063" target="_blank" class="btn btn-primary btn-block">Get Directions <i class="fas fa-directions"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>About Gurukula</h4>
-                    <p>Gurukula Tuitions has been empowering students in Tiruvallur since 2014. We believe in building
-                        strong academic foundations through personalized attention and concept-based learning.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#home" class="nav-logo">
+                        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <span>Gurukula<span>Tuitions</span></span>
+                    </a>
+                    <p>Nurturing young minds since 2014. We are committed to providing the highest quality education and helping students build a foundation for a lifelong journey of learning and success.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919600296734" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <div class="footer-col">
+                <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#subjects">Subjects</a></li>
-                        <li><a href="#testimonials">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#subjects">Programs & Fees</a></li>
+                        <li><a href="#faculty">Meet Our Faculty</a></li>
+                        <li><a href="#admission">Admission</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Our Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#subjects">CBSE Coaching</a></li>
-                        <li><a href="#subjects">State Board Classes</a></li>
-                        <li><a href="#subjects">Class 1-10 Foundation</a></li>
-                        <li><a href="#subjects">Class 11-12 Boards</a></li>
-                        <li><a href="#subjects">NEET/JEE Prep</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <ul class="footer-contact">
-                        <li><i class="fas fa-phone-alt"></i> +91 96002 96734</li>
-                        <li><i class="fab fa-whatsapp"></i> +91 96002 96734</li>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +91 96002 96734</li>
                         <li><i class="fas fa-envelope"></i> info@gurukulatuitions.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> No. 69, South Tank Street, Tiruvallur</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tiruvallur, Tamil Nadu</li>
                     </ul>
+                    <div class="footer-hours">
+                        <p><strong>Office Hours:</strong></p>
+                        <span>Monday - Saturday: 4:00 PM - 9:00 PM</span>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Gurukula Tuitions, Tiruvallur. Made with <span class="heart"><i
-                            class="fas fa-heart"></i></span> for academic excellence.</p>
+                <p>&copy; 2026 Gurukula Tuitions. All Rights Reserved.</p>
+                <p>Designed with Excellence in Education</p>
             </div>
         </div>
     </footer>
 
-    <!-- BACK TO TOP -->
+    <!-- UTILITIES -->
     <button class="back-to-top" id="backToTop" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
 
-    <!-- WHATSAPP SELECTOR -->
-    <div class="wa-menu-container" id="waMenu">
-        <div class="wa-menu-header">Select Class</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 1')">Class 1</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 2')">Class 2</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 3')">Class 3</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 4')">Class 4</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 5')">Class 5</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 6')">Class 6</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 7')">Class 7</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 8')">Class 8</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 9')">Class 9</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 10')">Class 10</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 11')">Class 11</div>
-        <div class="wa-option" onclick="sendWAMsg('Class 12')">Class 12</div>
+    <div class="wa-float-container">
+        <div class="wa-tooltip">Enquire on WhatsApp</div>
+        <a href="https://wa.me/919600296734" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
-    <!-- WHATSAPP FLOAT -->
-    <div id="waButton" class="whatsapp-float" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></div>
-
+    <!-- SCRIPTS -->
     <script src="script.js" defer></script>
 </body>
 
