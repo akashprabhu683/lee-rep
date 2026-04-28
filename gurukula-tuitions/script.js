@@ -126,30 +126,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. ACTIVE NAVIGATION WITH INTERSECTION OBSERVER
+    // 6. ACTIVE NAV LINK ON SCROLL (scroll-based — most reliable for SPAs)
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const NAV_HEIGHT = 90;
 
-    const navObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach((link) => {
-                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                    });
-                }
-            });
-        },
-        {
-            threshold: 0.5,
-            rootMargin: '-50% 0px -50%'
-        }
-    );
+    function updateActiveNav() {
+        const scrollY = window.scrollY;
+        let current = '';
 
-    sections.forEach((section) => {
-        navObserver.observe(section);
-    });
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - NAV_HEIGHT - 10;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav(); // run on load
 
     // 7. COUNTER ANIMATION
     const stats = document.querySelectorAll('.stat-num');

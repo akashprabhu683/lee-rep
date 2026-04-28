@@ -1442,6 +1442,11 @@ section {
     z-index: 999;
 }
 
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 .back-to-top:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 32px rgba(30, 64, 175, 0.4);
@@ -1458,7 +1463,6 @@ section {
 .back-to-top,
 .whatsapp-float {
     will-change: transform;
-    transform: translateZ(0);
 }
 
 .wa-float-container {
