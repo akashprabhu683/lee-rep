@@ -47,7 +47,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 90px; /* Reduced to align perfectly with sticky navbar */
+    scroll-padding-top: 70px; /* Matched to scrolled navbar height to fix black line gap */
 }
 
 body {
@@ -291,7 +291,7 @@ section {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 }
 
 .nav-links a {
