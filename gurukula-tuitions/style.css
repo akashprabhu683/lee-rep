@@ -1269,16 +1269,10 @@ section { padding: 100px 0; }
 
 .mobile-nav-header { 
     display: flex; 
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between; 
+    align-items: center; 
     padding-bottom: 25px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header-top {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
 }
 
 .mobile-nav-header .nav-logo {
@@ -1309,15 +1303,13 @@ section { padding: 100px 0; }
 }
 
 .close-mobile-nav { 
-    display: flex !important;
-    width: 32px;
-    height: 32px;
-    align-items: center;
-    justify-content: center;
-}
-
-.close-mobile-nav span {
-    background: var(--white) !important;
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
 }
 
 .mobile-nav-content {
