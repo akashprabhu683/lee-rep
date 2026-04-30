@@ -1275,8 +1275,24 @@ section { padding: 100px 0; }
     border-bottom: 1px solid var(--border);
 }
 
+.mobile-nav-header .nav-logo {
+    font-size: 1.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80%;
+}
+
 .close-mobile-nav { 
     display: flex !important;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-mobile-nav span {
+    background: var(--primary) !important;
 }
 
 .mobile-nav-links { 
@@ -1296,6 +1312,10 @@ section { padding: 100px 0; }
     padding-bottom: 15px;
     border-bottom: 1px solid var(--border);
     transition: color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .mobile-nav-links a:last-child {
