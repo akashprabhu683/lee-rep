@@ -1269,19 +1269,43 @@ section { padding: 100px 0; }
 
 .mobile-nav-header { 
     display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
+    flex-direction: column;
+    gap: 15px;
     padding-bottom: 25px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.header-top {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .mobile-nav-header .nav-logo {
-    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo-main {
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--white);
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 80%;
+}
+
+.logo-sub {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .close-mobile-nav { 
