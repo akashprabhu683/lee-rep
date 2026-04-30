@@ -1479,10 +1479,21 @@ section { padding: 100px 0; }
 
 @media (max-width: 768px) {
     .why-grid,
-    .programs-grid,
     .faculty-grid,
     .gallery-grid,
     .testi-grid { grid-template-columns: 1fr; }
+
+    .programs-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 16px;
+    }
+    
+    .program-card {
+        padding: 24px 16px;
+    }
+    
+    .program-card h3 { font-size: 1.1rem; }
+    .card-price { font-size: 1.25rem; }
 
     .form-row { grid-template-columns: 1fr; }
 
