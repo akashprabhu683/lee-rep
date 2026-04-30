@@ -296,15 +296,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     clearTimeout(hoverTimeout);
                     hoverTimeout = setTimeout(() => {
+                        autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
                         entry.target.classList.add('auto-hover');
-                    }, 50); 
+                    }, 50); // Small debounce to prevent flickering on fast scroll
                 } else {
                     entry.target.classList.remove('auto-hover');
                 }
             });
         }, {
-            // Target elements when they are in the middle 15% of the viewport
-            rootMargin: '-42.5% 0px -42.5% 0px',
+            // Target elements when they are in the middle 10% of the viewport (more focused)
+            rootMargin: '-45% 0px -45% 0px',
             threshold: 0
         });
 
