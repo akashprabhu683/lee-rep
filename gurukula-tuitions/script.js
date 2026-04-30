@@ -289,19 +289,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item');
     
     if (window.innerWidth < 1024) {
+        let hoverTimeout;
         const autoHoverObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Only one element should be hovered at a time
-                    autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
-                    entry.target.classList.add('auto-hover');
+                    clearTimeout(hoverTimeout);
+                    hoverTimeout = setTimeout(() => {
+                        autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
+                        entry.target.classList.add('auto-hover');
+                    }, 50); // Small debounce to prevent flickering on fast scroll
                 } else {
                     entry.target.classList.remove('auto-hover');
                 }
             });
         }, {
-            // Target elements when they are in the middle 20% of the viewport
-            rootMargin: '-40% 0px -40% 0px',
+            // Target elements when they are in the middle 10% of the viewport (more focused)
+            rootMargin: '-45% 0px -45% 0px',
             threshold: 0
         });
 
