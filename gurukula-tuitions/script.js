@@ -284,11 +284,11 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
-    // 12. SPECIALIZED SUBJECTS MOBILE HOVER
-    const subjectTags = document.querySelectorAll('.subject-tags span');
+    // 12. MOBILE AUTO-HOVER (Scroll-triggered highlight for cards & buttons)
+    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item, .btn-call-admission, .about-f-card');
     
-    if (window.innerWidth < 1024 && subjectTags.length > 0) {
-        const subjectObserver = new IntersectionObserver((entries) => {
+    if (window.innerWidth < 1024) {
+        const autoHoverObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
@@ -302,6 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
             threshold: 0
         });
 
-        subjectTags.forEach(tag => subjectObserver.observe(tag));
+        autoHoverElements.forEach(el => autoHoverObserver.observe(el));
     }
 });
