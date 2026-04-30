@@ -283,4 +283,28 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
+    // 12. MOBILE AUTO-HOVER (Scroll-triggered hover for cards & buttons)
+    // This feature enhances mobile UX by automatically triggering hover effects
+    // as elements enter the middle of the screen.
+    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item');
+    
+    if (window.innerWidth < 1024) {
+        const autoHoverObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Only one element should be hovered at a time
+                    autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
+                    entry.target.classList.add('auto-hover');
+                } else {
+                    entry.target.classList.remove('auto-hover');
+                }
+            });
+        }, {
+            // Target elements when they are in the middle 20% of the viewport
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: 0
+        });
+
+        autoHoverElements.forEach(el => autoHoverObserver.observe(el));
+    }
 });
