@@ -281,28 +281,15 @@ section { padding: 100px 0; }
     box-shadow: 0 6px 16px rgba(30, 64, 175, 0.3);
 }
 
+/* Header Actions */
 .nav-actions {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-.call-btn {
-    width: 44px;
-    height: 44px;
-    background: rgba(30, 64, 175, 0.1);
-    color: var(--primary);
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-.call-btn:hover {
-    background: var(--primary);
-    color: var(--white);
-}
+.method-action { margin-top: 32px; }
+.btn-call-admission { padding: 12px 24px; }
 
 .hamburger {
     display: none;
@@ -320,9 +307,13 @@ section { padding: 100px 0; }
     height: 2px;
     background: var(--text-main);
     border-radius: 10px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform-origin: 1px;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
 }
+
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); background: var(--primary); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background: var(--primary); }
 
 /* HERO */
 .hero {
@@ -898,8 +889,40 @@ section { padding: 100px 0; }
     color: var(--primary);
     box-shadow: var(--shadow-sm);
 }
-.method-item h5 { font-size: 1rem; color: var(--text-muted); margin-bottom: 4px; }
-.method-item a { font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+.method-item h5 { font-size: 1rem; color: var(--text-muted); margin-bottom: 2px; }
+
+.method-action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.phone-link { 
+    font-size: 1.25rem; 
+    font-weight: 700; 
+    color: var(--text-main); 
+}
+
+.btn-call-admission {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-call-admission:hover,
+.btn-call-admission.auto-hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
 
 .admission-form-card {
     background: var(--white);
@@ -1216,11 +1239,11 @@ section { padding: 100px 0; }
     top: 0;
     right: 0;
     bottom: 0;
-    width: 320px;
-    max-width: 85%;
+    width: 40%;
+    min-width: 200px;
     background: var(--white);
     z-index: 1001;
-    padding: 40px 30px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
@@ -1229,11 +1252,37 @@ section { padding: 100px 0; }
 }
 .mobile-nav.open { transform: translateX(0); }
 
-.mobile-nav-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; }
-.close-mobile-nav { font-size: 2.5rem; background: none; border: none; cursor: pointer; }
+.mobile-nav-header { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; }
+.close-mobile-nav { display: none; } /* User wants cross transition on hamburger instead */
 
-.mobile-nav-links { display: flex; flex-direction: column; gap: 20px; }
-.mobile-nav-links a { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
+.mobile-nav-links { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    justify-content: space-evenly; 
+    align-items: center;
+}
+
+.mobile-nav-links a { 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--text-main); 
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-links a:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a.active {
+    color: var(--primary);
+}
 
 .mobile-cta {
     margin-top: 20px;

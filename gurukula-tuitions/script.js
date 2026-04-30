@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. MOBILE NAVIGATION TOGGLE
     const toggleMenu = () => {
         mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('open');
         overlay.classList.toggle('active');
         document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : 'auto';
     };
@@ -286,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 12. MOBILE AUTO-HOVER (Scroll-triggered hover for cards & buttons)
     // This feature enhances mobile UX by automatically triggering hover effects
     // as elements enter the middle of the screen.
-    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item');
+    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item, .btn-call-admission');
     
     if (window.innerWidth < 1024) {
         let hoverTimeout;
