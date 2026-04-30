@@ -284,31 +284,24 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
-    // 12. MOBILE AUTO-HOVER (Scroll-triggered hover for cards & buttons)
-    // This feature enhances mobile UX by automatically triggering hover effects
-    // as elements enter the middle of the screen.
-    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item, .btn-call-admission');
+    // 12. SPECIALIZED SUBJECTS MOBILE HOVER
+    const subjectTags = document.querySelectorAll('.subject-tags span');
     
-    if (window.innerWidth < 1024) {
-        let hoverTimeout;
-        const autoHoverObserver = new IntersectionObserver((entries) => {
+    if (window.innerWidth < 1024 && subjectTags.length > 0) {
+        const subjectObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    clearTimeout(hoverTimeout);
-                    hoverTimeout = setTimeout(() => {
-                        autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
-                        entry.target.classList.add('auto-hover');
-                    }, 50); // Small debounce to prevent flickering on fast scroll
+                    entry.target.classList.add('active');
                 } else {
-                    entry.target.classList.remove('auto-hover');
+                    entry.target.classList.remove('active');
                 }
             });
         }, {
-            // Target elements when they are in the middle 10% of the viewport (more focused)
-            rootMargin: '-45% 0px -45% 0px',
+            // Target elements when they enter the central 50% of the viewport
+            rootMargin: '-25% 0px -25% 0px',
             threshold: 0
         });
 
-        autoHoverElements.forEach(el => autoHoverObserver.observe(el));
+        subjectTags.forEach(tag => subjectObserver.observe(tag));
     }
 });
