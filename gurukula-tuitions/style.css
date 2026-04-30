@@ -744,9 +744,43 @@ section { padding: 100px 0; }
 .experience-badge strong { font-size: 2.5rem; color: var(--primary); line-height: 1; }
 .experience-badge span  { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
 
-.check-list { margin: 30px 0; }
-.check-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-weight: 500; }
-.check-list i { color: var(--primary); }
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+}
+
+.about-f-card {
+    background: var(--white);
+    padding: 24px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.about-f-card i {
+    font-size: 1.75rem;
+    color: var(--primary);
+}
+
+.about-f-card span {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.about-f-card:hover,
+.about-f-card.active {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
 
 /* FACULTY SECTION */
 .faculty-grid {
@@ -889,9 +923,15 @@ section { padding: 100px 0; }
 
 .contact-methods {
     margin-top: 48px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 1200px) {
+    .contact-methods {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .method-item { display: flex; align-items: center; gap: 20px; }
