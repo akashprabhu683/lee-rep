@@ -285,20 +285,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     // 12. MOBILE AUTO-HOVER (Scroll-triggered hover for cards & buttons)
+    // This feature enhances mobile UX by automatically triggering hover effects
+    // as elements enter the middle of the screen.
     const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item, .btn-call-admission');
     
     if (window.innerWidth < 1024) {
+        let hoverTimeout;
         const autoHoverObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    clearTimeout(hoverTimeout);
+                    hoverTimeout = setTimeout(() => {
+                        autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
+                        entry.target.classList.add('auto-hover');
+                    }, 50); // Small debounce to prevent flickering on fast scroll
                 } else {
-                    entry.target.classList.remove('active');
+                    entry.target.classList.remove('auto-hover');
                 }
             });
         }, {
-            // Target elements when they enter the central 50% of the viewport
-            rootMargin: '-25% 0px -25% 0px',
+            // Target elements when they are in the middle 10% of the viewport (more focused)
+            rootMargin: '-45% 0px -45% 0px',
             threshold: 0
         });
 
