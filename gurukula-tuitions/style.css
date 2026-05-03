@@ -94,10 +94,8 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
     z-index: 1000;
     padding: 28px 0;
-    transition: var(--transition-smooth), transform 0.4s ease;
+    transition: var(--transition-smooth);
 }
-
-.navbar.hidden { transform: translateY(-100%); }
 
 .navbar.scrolled {
     padding: 14px 0;

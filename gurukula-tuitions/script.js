@@ -193,18 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Navbar
         if (scroll > 80) {
-
             navbar.classList.add('scrolled');
-
-            if (scroll > lastScroll + 5) {
-                navbar.classList.add('hidden');
-            } else if (scroll < lastScroll - 5) {
-                navbar.classList.remove('hidden');
-            }
-
         } else {
-            navbar.classList.remove('scrolled', 'hidden');
+            navbar.classList.remove('scrolled');
         }
+        navbar.classList.remove('hidden');
 
         lastScroll = scroll;
 
