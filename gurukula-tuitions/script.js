@@ -574,5 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     console.log('✅ Gurukula Tuitions — Optimized systems initialized');
+    console.log('hello');
 
 });
