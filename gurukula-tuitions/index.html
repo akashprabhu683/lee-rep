@@ -1,675 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurukula Tuitions | Leading Tuition Institute in Tiruvallur</title>
+    <title>Gurukula Tuitions | Excellence in Premium Education</title>
+    <meta name="description" content="Experience elite, technology-driven education at Gurukula Tuitions. A modern learning ecosystem for Mathematics, Science, Commerce, and Humanities.">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Gurukula Tuitions in Tiruvallur - Professional coaching for Classes 1-12 (CBSE & State Board). Expert faculty, personalized attention, and a track record of academic excellence since 2014.">
-    <meta name="keywords" content="tuition center Tiruvallur, best tuitions in Tiruvallur, CBSE tuition, State Board coaching, Maths tuition Tiruvallur, Science classes">
-    <meta name="author" content="Gurukula Tuitions">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Gurukula Tuitions | Empowering Academic Excellence">
-    <meta property="og:description" content="Nurturing young minds in Tiruvallur with expert guidance and small batch sizes. Join the success story at Gurukula Tuitions.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gurukulatuitions.com">
-    <meta property="og:image" content="https://gurukulatuitions.com/assets/og-image.jpg">
-
-    <!-- FIX 1: Added font-display=swap to prevent render-blocking fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap&font-display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
 
-    <!-- NAVIGATION -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="nav-inner">
-                <a href="#home" class="nav-logo" aria-label="Gurukula Tuitions Home">
-                    <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <span>Gurukula<span>Tuitions</span></span>
-                </a>
-                <div class="nav-links" id="navLinks">
-                    <a href="#home" class="active">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#why">Why Us</a>
-                    <a href="#subjects">Programs</a>
-                    <a href="#faculty">Faculty</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#faq">FAQs</a>
-                    <a href="#admission" class="nav-cta">Enroll Now</a>
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="container navbar-inner">
+                    <div class="logo">
+                        <span class="logo-mark">G</span>
+                        <span class="logo-text">URUKULA</span>
+                    </div>
+                    <ul class="nav-links desktop-only">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#subjects" class="nav-link">Curriculum</a></li>
+                        <li><a href="#faculty" class="nav-link">Faculty</a></li>
+                        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                        <li><a href="#faqs" class="nav-link">FAQs</a></li>
+                    </ul>
+                    <div class="nav-cta desktop-only">
+                        <a href="#admission" class="btn btn-premium magnetic">Enroll Now</a>
+                    </div>
+                    <div class="mobile-toggle" aria-label="Toggle Menu">
+                        <div class="toggle-bar"></div>
+                        <div class="toggle-bar"></div>
+                    </div>
                 </div>
-                <div class="nav-actions">
-                    <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-                        <span></span><span></span><span></span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+            </nav>
 
-    <div class="overlay" id="overlay"></div>
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-header">
-            <div class="nav-logo">
-                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-                <div class="logo-text">
-                    <span class="logo-main">Gurukula</span>
-                    <span class="logo-sub">Tuitions</span>
+            <!-- Mobile Side Nav -->
+            <div class="side-nav">
+                <div class="side-nav-inner">
+                    <div class="side-nav-header">
+                        <div class="logo">
+                            <span class="logo-mark">G</span>
+                            <span class="logo-text">URUKULA</span>
+                        </div>
+                        <div class="nav-close"><i class="ph ph-x"></i></div>
+                    </div>
+                    <ul class="side-links">
+                        <li><a href="#home" class="side-link">Home</a></li>
+                        <li><a href="#about" class="side-link">About</a></li>
+                        <li><a href="#subjects" class="side-link">Curriculum</a></li>
+                        <li><a href="#faculty" class="side-link">Faculty</a></li>
+                        <li><a href="#gallery" class="side-link">Gallery</a></li>
+                        <li><a href="#faqs" class="side-link">FAQs</a></li>
+                    </ul>
+                    <div class="side-cta">
+                        <a href="#admission" class="btn btn-premium w-full">Enroll Now</a>
+                    </div>
                 </div>
             </div>
-            <button class="close-mobile-nav" id="closeMobileNav" aria-label="Close Menu">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#why">Why Us</a>
-                <a href="#subjects">Programs</a>
-                <a href="#faculty">Faculty</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#faq">FAQs</a>
-            </div>
-        </div>
-        <div class="mobile-nav-footer">
-            <a href="#admission" class="btn btn-primary btn-block mobile-cta-btn">Enroll Now</a>
+
+            <!-- Hero Section -->
+            <section id="home" class="hero">
+                <div id="particles-js" class="hero-particles"></div>
+                <div class="hero-grain"></div>
+                <div class="container hero-inner">
+                    <div class="hero-content">
+                        <div class="badge-wrapper" data-gsap="reveal">
+                            <span class="badge"><span class="badge-dot"></span>Premier Learning Institution — Est. 2014</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Pioneering the <br>
+                            <em>Elite Path</em><br>
+                            to Success.
+                        </h1>
+                        <p class="hero-subtitle" data-gsap="reveal">
+                            Empowering students through academic rigor, expert mentorship, and modern technological integration.
+                        </p>
+                        <div class="hero-actions" data-gsap="reveal">
+                            <a href="#subjects" class="btn btn-primary magnetic">Explore Curriculum</a>
+                            <a href="#admission" class="btn btn-ghost magnetic">Admissions 2026 <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="stat-big">12+</span>
+                                <span class="stat-caption">Years of Legacy</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="hero-stat">
+                                <span class="stat-big">8</span>
+                                <span class="stat-caption">Subjects Offered</span>
+                            </div>
+                            <div class="stat-divider"></div>
+                            <div class="hero-stat">
+                                <span class="stat-big">10–12</span>
+                                <span class="stat-caption">Students / Batch</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual" data-gsap="float">
+                        <div class="floating-orbit">
+                            <div class="orbit-center-glow"></div>
+                            <div class="orbit-ring math-ring">
+                                <div class="orbit-planet math-planet"><i class="ph ph-calculator"></i></div>
+                            </div>
+                            <div class="orbit-ring physics-ring">
+                                <div class="orbit-planet physics-planet"><i class="ph ph-lightning"></i></div>
+                            </div>
+                            <div class="orbit-ring cs-ring">
+                                <div class="orbit-planet cs-planet"><i class="ph ph-cpu"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="about-section">
+                <div class="container">
+                    <div class="about-grid">
+                        <div class="about-info">
+                            <span class="badge">Our Philosophy</span>
+                            <h3 class="subject-heading">Where Intellectual <br>Rigor Meets Vision.</h3>
+                            <p class="subject-desc">Founded in 2014, Gurukula Tuitions has evolved into a sanctuary for academic excellence. We believe in nurturing not just students, but future leaders through personalized care and state-of-the-art resources.</p>
+                            <div class="about-features">
+                                <div class="about-f-card">
+                                    <i class="ph ph-chalkboard-teacher"></i>
+                                    <h4>Elite Faculty</h4>
+                                    <p>Mentorship from PhD scholars and industry veterans.</p>
+                                </div>
+                                <div class="about-f-card">
+                                    <i class="ph ph-laptop"></i>
+                                    <h4>Smart Labs</h4>
+                                    <p>Interactive 3D simulations and digital resource libraries.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-visual-box">
+                            <div class="premium-frame">
+                                <div class="frame-ring frame-ring-1"></div>
+                                <div class="frame-ring frame-ring-2"></div>
+                                <div class="frame-content">
+                                    <span class="stat-num">12+</span>
+                                    <span class="stat-label">Years of Legacy</span>
+                                </div>
+                                <div class="frame-tag tag-top">Est. 2014</div>
+                                <div class="frame-tag tag-bottom">Chennai, TN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Curriculum Wrapper -->
+            <div id="subjects">
+                
+                <!-- Mathematics -->
+                <section id="math" class="subject-section math-section">
+                    <div class="section-grid-bg"></div>
+                    <div class="container">
+                        <div class="subject-content">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">01</span> Mathematics</h2>
+                                <h3 class="subject-heading">The Logic of Precision.</h3>
+                                <p class="subject-desc">Our advanced mathematics curriculum transforms abstract concepts into intuitive understanding, preparing students for competitive examinations and beyond.</p>
+                                <div class="subject-card">
+                                    <i class="ph ph-grid-four" style="color:var(--accent-math)"></i>
+                                    <h4>Coordinate Mastery</h4>
+                                    <p>Visualizing complex functions through interactive coordinate grid simulations.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Advanced Calculus</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Linear Algebra</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Differential Equations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="math-interactive-bg">
+                                    <div class="math-equations">
+                                        <span class="math-eq eq-1">∫f(x)dx</span>
+                                        <span class="math-eq eq-2">∇²φ = 0</span>
+                                        <span class="math-eq eq-3">e^(iπ)+1=0</span>
+                                        <span class="math-eq eq-4">lim x→∞</span>
+                                    </div>
+                                    <svg class="math-svg" viewBox="0 0 400 200">
+                                        <path class="math-path-bg" d="M0,150 Q100,50 200,150 T400,150" fill="none" stroke="rgba(37,99,235,0.08)" stroke-width="2" />
+                                        <path id="math-curve" d="M0,150 Q100,50 200,150 T400,150" fill="none" stroke="var(--accent-math)" stroke-width="2.5" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Physics -->
+                <section id="physics" class="subject-section physics-section">
+                    <div class="energy-pulse-bg"></div>
+                    <div class="container">
+                        <div class="subject-content reverse">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">02</span> Physics</h2>
+                                <h3 class="subject-heading">Forces of Reality.</h3>
+                                <p class="subject-desc">Dive into the laws of energy and motion. Our physics lab sessions bridge the gap between theoretical laws and physical phenomena.</p>
+                                <div class="subject-card">
+                                    <i class="ph ph-lightning" style="color:var(--accent-physics)"></i>
+                                    <h4>Energy Propagation</h4>
+                                    <p>Cinematic wave simulations and magnetic force field visualizations.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Quantum Mechanics</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Electrodynamics</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Thermodynamics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="physics-waves">
+                                    <div class="wave wave-1"></div>
+                                    <div class="wave wave-2"></div>
+                                    <div class="wave wave-3"></div>
+                                    <div class="wave-core"><i class="ph ph-atom"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chemistry -->
+                <section id="chemistry" class="subject-section chemistry-section">
+                    <div class="container">
+                        <div class="subject-content">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">03</span> Chemistry</h2>
+                                <h3 class="subject-heading">Molecular Harmony.</h3>
+                                <p class="subject-desc">Experience the science of matter. From thermodynamic equilibria to complex organic synthesis, we make chemistry experiential.</p>
+                                <div class="subject-card">
+                                    <i class="ph ph-hexagon" style="color:var(--accent-chem)"></i>
+                                    <h4>Structural Bonds</h4>
+                                    <p>Interactive 3D molecular modeling and chemical reaction chain visualizations.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Organic Synthesis</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Biochemistry</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Polymer Science</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="molecule-visual">
+                                    <div class="mol-center"></div>
+                                    <div class="mol-atom mol-a1"></div>
+                                    <div class="mol-atom mol-a2"></div>
+                                    <div class="mol-atom mol-a3"></div>
+                                    <div class="mol-atom mol-a4"></div>
+                                    <div class="mol-bond mol-b1"></div>
+                                    <div class="mol-bond mol-b2"></div>
+                                    <div class="mol-bond mol-b3"></div>
+                                    <div class="mol-bond mol-b4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Biology -->
+                <section id="biology" class="subject-section biology-section">
+                    <div class="container">
+                        <div class="subject-content reverse">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">04</span> Biology</h2>
+                                <h3 class="subject-heading">The Essence of Life.</h3>
+                                <p class="subject-desc">Explore the intricate systems of life. Our biology modules focus on cellular dynamics, genetics, and ecological evolution.</p>
+                                <div class="subject-card">
+                                    <i class="ph ph-dna" style="color:var(--accent-bio)"></i>
+                                    <h4>Organic Systems</h4>
+                                    <p>Breathe life into genetics with our organic DNA-inspired motion graphics.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Molecular Genetics</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Human Anatomy</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Plant Physiology</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="dna-container">
+                                    <svg class="dna-svg" viewBox="0 0 100 300">
+                                        <path class="dna-strand strand-1" d="M30,0 Q70,37 30,75 T30,150 T30,225 T30,300" fill="none" stroke="var(--accent-bio)" stroke-width="2.5" />
+                                        <path class="dna-strand strand-2" d="M70,0 Q30,37 70,75 T70,150 T70,225 T70,300" fill="none" stroke="var(--accent-bio)" stroke-width="2.5" opacity="0.5"/>
+                                        <line class="dna-rung" x1="30" y1="38" x2="70" y2="38" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="75" x2="70" y2="75" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="112" x2="70" y2="112" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="150" x2="70" y2="150" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="188" x2="70" y2="188" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="225" x2="70" y2="225" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                        <line class="dna-rung" x1="30" y1="262" x2="70" y2="262" stroke="var(--accent-bio)" stroke-width="1.5" opacity="0.4"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CS -->
+                <section id="cs" class="subject-section cs-section">
+                    <div class="cyber-grid"></div>
+                    <div class="container">
+                        <div class="subject-content">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">05</span> Computer Science</h2>
+                                <h3 class="subject-heading">Architecting Tomorrow.</h3>
+                                <p class="subject-desc">Master algorithms, AI, and cybersecurity. Our CS curriculum is designed to foster innovation in the digital age.</p>
+                                <div class="subject-card dark-card">
+                                    <i class="ph ph-cpu" style="color:var(--accent-cs)"></i>
+                                    <h4>Digital Logic</h4>
+                                    <p>Neural network activation and algorithm visualization in high-fidelity.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> AI & Neural Networks</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Data Structures</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Cybersecurity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="terminal-mockup">
+                                    <div class="terminal-header">
+                                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                                        <span class="terminal-title">gurukula_lab.js</span>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="code-line"><span class="c-comment">// Excellence begins here</span></div>
+                                        <div class="code-line"><span class="c-keyword">const</span> <span class="c-name">Gurukula</span> = {</div>
+                                        <div class="code-line ind-1"><span class="c-prop">mission</span>: <span class="c-string">"Elite Education"</span>,</div>
+                                        <div class="code-line ind-1"><span class="c-prop">build</span>: <span class="c-func">async</span> () => {</div>
+                                        <div class="code-line ind-2"><span class="c-keyword">await</span> <span class="c-this">Future</span>.<span class="c-func">unlock</span>();</div>
+                                        <div class="code-line ind-2"><span class="c-keyword">return</span> <span class="c-string">"Success"</span>;</div>
+                                        <div class="code-line ind-1">}</div>
+                                        <div class="code-line">};</div>
+                                        <div class="code-line code-output"><span class="c-comment">// → "Success" ✓</span></div>
+                                        <div class="code-cursor"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Commerce -->
+                <section id="commerce" class="subject-section commerce-section">
+                    <div class="container">
+                        <div class="subject-content reverse">
+                            <div class="subject-info">
+                                <h2 class="section-title"><span class="section-number">06</span> Commerce</h2>
+                                <h3 class="subject-heading">The Art of Economics.</h3>
+                                <p class="subject-desc">Master financial accounting and business metrics through our premium analytics-driven commerce modules.</p>
+                                <div class="subject-card">
+                                    <i class="ph ph-chart-line-up" style="color:var(--accent-commerce)"></i>
+                                    <h4>Metric Dynamics</h4>
+                                    <p>Visualizing business growth and financial ledgers with interactive charts.</p>
+                                    <ul class="subject-highlights">
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Financial Accounting</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Business Analytics</li>
+                                        <li class="highlight-item"><i class="ph ph-check-circle"></i> Microeconomics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="subject-visual">
+                                <div class="commerce-visual">
+                                    <div class="chart-line-wrapper">
+                                        <svg class="line-svg" viewBox="0 0 400 150" preserveAspectRatio="none">
+                                            <path id="commerce-path" d="M0,120 L50,100 L100,110 L150,60 L200,80 L250,30 L300,50 L400,10" fill="none" stroke="var(--accent-commerce)" stroke-width="3" stroke-linecap="round" />
+                                            <path d="M0,120 L50,100 L100,110 L150,60 L200,80 L250,30 L300,50 L400,10 L400,150 L0,150 Z" fill="var(--accent-commerce)" opacity="0.06" />
+                                        </svg>
+                                    </div>
+                                    <div class="chart-bars">
+                                        <div class="bar" style="height:40%"><span class="bar-label">Q1</span></div>
+                                        <div class="bar" style="height:70%"><span class="bar-label">Q2</span></div>
+                                        <div class="bar" style="height:55%"><span class="bar-label">Q3</span></div>
+                                        <div class="bar" style="height:90%"><span class="bar-label">Q4</span></div>
+                                        <div class="bar" style="height:75%"><span class="bar-label">Q5</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Humanities -->
+                <section id="humanities" class="subject-section humanities-wrapper">
+                    
+                    <!-- English -->
+                    <div id="english" class="english-section">
+                        <div class="container">
+                            <div class="subject-content">
+                                <div class="subject-info">
+                                    <h2 class="section-title"><span class="section-number">07</span> English</h2>
+                                    <h3 class="subject-heading">Literary Elegance.</h3>
+                                    <p class="subject-desc">Refine your linguistic expression and literary analysis through our sophisticated storytelling approach.</p>
+                                    <div class="subject-card">
+                                        <i class="ph ph-quotes" style="color:var(--accent-english)"></i>
+                                        <h4>Typography & Rhetoric</h4>
+                                        <p>Cinematic text transitions and literary quote reveals.</p>
+                                        <ul class="subject-highlights">
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> Shakespearean Studies</li>
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> Creative Rhetoric</li>
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> Literary Theory</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="subject-visual">
+                                    <div class="english-typography">
+                                        <span class="lit-word lit-w1">Intellect</span>
+                                        <span class="lit-word lit-w2">Vision</span>
+                                        <span class="lit-word lit-w3">Legacy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History -->
+                    <div id="history" class="history-section">
+                        <div class="history-texture"></div>
+                        <div class="container">
+                            <div class="subject-content reverse">
+                                <div class="subject-info">
+                                    <h2 class="section-title"><span class="section-number">08</span> History</h2>
+                                    <h3 class="subject-heading">Chronicles of Time.</h3>
+                                    <p class="subject-desc">Journey through the eras with our cinematic timeline-inspired historical modules.</p>
+                                    <div class="subject-card">
+                                        <i class="ph ph-hourglass-high" style="color:var(--accent-history-light)"></i>
+                                        <h4>Timeline Evolution</h4>
+                                        <p>Layered historical storytelling and parallax archival depth.</p>
+                                        <ul class="subject-highlights">
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> World Civilizations</li>
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> Modern Diplomacy</li>
+                                            <li class="highlight-item"><i class="ph ph-check-circle"></i> Archival Research</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="subject-visual">
+                                    <div class="history-timeline">
+                                        <div class="timeline-line"></div>
+                                        <div class="time-node">
+                                            <div class="node-dot"></div>
+                                            <div class="node-label">Ancient Era</div>
+                                        </div>
+                                        <div class="time-node">
+                                            <div class="node-dot"></div>
+                                            <div class="node-label">Medieval Era</div>
+                                        </div>
+                                        <div class="time-node">
+                                            <div class="node-dot"></div>
+                                            <div class="node-label">Modern Era</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- End #subjects -->
+
+            <!-- Faculty Section -->
+            <section id="faculty" class="subject-section faculty-section">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="badge">Elite Mentorship</span>
+                        <h2 class="section-title">Learn from the Best</h2>
+                        <p class="section-subtitle">Our educators bring decades of expertise and a passion for transformative teaching.</p>
+                    </div>
+                    <div class="faculty-grid">
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-math)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Dr. Arvind Kumar</h4>
+                                <p>Mathematics | PhD, IIT Madras</p>
+                                <div class="faculty-badge">15+ Yrs Exp</div>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-physics)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Prof. S. Lakshmi</h4>
+                                <p>Physics Specialist | M.Sc, B.Ed</p>
+                                <div class="faculty-badge">10+ Yrs Exp</div>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-cs)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Mr. Rajesh V.</h4>
+                                <p>CS Lead | M.Tech</p>
+                                <div class="faculty-badge">8+ Yrs Exp</div>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-commerce)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Mrs. Ananya Sen</h4>
+                                <p>Commerce | CA Finalist</p>
+                                <div class="faculty-badge">12+ Yrs Exp</div>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-english)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Ms. Sarah John</h4>
+                                <p>English Literature | MA, M.Phil</p>
+                                <div class="faculty-badge">7+ Yrs Exp</div>
+                            </div>
+                        </div>
+                        <div class="faculty-card">
+                            <div class="faculty-accent" style="background:var(--accent-chem)"></div>
+                            <div class="faculty-image"><i class="ph ph-user-circle"></i></div>
+                            <div class="faculty-info">
+                                <h4>Dr. Pritam Das</h4>
+                                <p>Chemistry | PhD, IISc</p>
+                                <div class="faculty-badge">14+ Yrs Exp</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="subject-section gallery-section">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="badge">Academic Life</span>
+                        <h2 class="section-title">Campus Gallery</h2>
+                        <p class="section-subtitle">Spaces designed to inspire curiosity and collaborative learning.</p>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item gallery-large"><div class="gallery-placeholder"><i class="ph ph-chalkboard-teacher"></i><span>Modern Classroom</span><p>Equipped with smart boards and collaborative workstations</p></div></div>
+                        <div class="gallery-item"><div class="gallery-placeholder"><i class="ph ph-desktop-tower"></i><span>Digital Resource Lab</span><p>High-speed computing and simulation tools</p></div></div>
+                        <div class="gallery-item"><div class="gallery-placeholder"><i class="ph ph-armchair"></i><span>Study Lounge</span><p>Comfortable collaborative learning spaces</p></div></div>
+                        <div class="gallery-item gallery-large-right"><div class="gallery-placeholder"><i class="ph ph-books"></i><span>Research Library</span><p>Thousands of reference books and digital journals</p></div></div>
+                        <div class="gallery-item"><div class="gallery-placeholder"><i class="ph ph-flask"></i><span>Science Laboratory</span><p>Fully equipped for physics, chemistry, and biology experiments</p></div></div>
+                        <div class="gallery-item"><div class="gallery-placeholder"><i class="ph ph-users-three"></i><span>Seminar Hall</span><p>Interactive sessions and guest lectures by industry experts</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQs Section -->
+            <section id="faqs" class="subject-section faqs-section">
+                <div class="container">
+                    <div class="section-header center">
+                        <span class="badge">Inquisitive Minds</span>
+                        <h2 class="section-title">Common Questions</h2>
+                    </div>
+                    <div class="faq-container">
+                        <div class="faq-item">
+                            <div class="faq-question"><span>What are the batch timings?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>We offer flexible batches from 6 AM to 9 PM to accommodate diverse student schedules, including weekend sessions.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>Do you provide digital study materials?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>Yes, all students have access to our premium digital resource library, printed study modules, and recorded lectures for revision.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>How do you track student progress?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>We conduct bi-weekly assessments and provide parents with a detailed monthly performance analytics report via our app.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>Are there one-on-one doubt sessions?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>Absolutely. We have dedicated time slots every weekend for personalized doubt clearance with faculty. Individual mentoring is also available.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>What is the average batch size?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>To ensure individual attention, we maintain an elite batch size of no more than 10–12 students per batch. This allows for deep interaction.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>Do you prepare students for competitive exams?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>Yes, our curriculum includes specialized training for JEE, NEET, and other national-level entrance examinations along with board preparation.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question"><span>Is transportation provided?</span><i class="ph ph-caret-down"></i></div>
+                            <div class="faq-answer"><p>We assist in connecting students with reliable private transport partners serving major localities within a 10km radius of the institute.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admission Section -->
+            <section id="admission" class="subject-section admission-section">
+                <div class="container">
+                    <div class="admission-box">
+                        <div class="admission-header">
+                            <span class="badge">Enroll Today</span>
+                            <h2 class="cta-title">Begin Your <br><em>Elite Journey</em></h2>
+                            <p class="cta-desc">Enrollment for 2026 is now open. Join the next generation of high achievers.</p>
+                        </div>
+                        <div class="contact-methods">
+                            <div class="call-card">
+                                <div class="call-icon"><i class="ph ph-phone-call"></i></div>
+                                <h5>Call for Admission</h5>
+                                <a href="tel:+919600296734" class="phone-num">+91 96002 96734</a>
+                                <a href="tel:+919600296734" class="btn btn-primary magnetic">Call Now <i class="ph ph-phone"></i></a>
+                            </div>
+                            <div class="quick-enquiry-card">
+                                <div class="enquiry-header">
+                                    <i class="ph ph-whatsapp-logo"></i>
+                                    <h5>Quick Enquiry</h5>
+                                </div>
+                                <p>Select Student Class</p>
+                                <select id="student-class" class="enquiry-select">
+                                    <option value="1">Class 1</option>
+                                    <option value="2">Class 2</option>
+                                    <option value="3">Class 3</option>
+                                    <option value="4">Class 4</option>
+                                    <option value="5">Class 5</option>
+                                    <option value="6">Class 6</option>
+                                    <option value="7">Class 7</option>
+                                    <option value="8">Class 8</option>
+                                    <option value="9">Class 9</option>
+                                    <option value="10">Class 10</option>
+                                    <option value="11">Class 11</option>
+                                    <option value="12" selected>Class 12</option>
+                                </select>
+                                <button id="whatsapp-chat-btn" class="btn btn-whatsapp-chat magnetic">
+                                    Chat on WhatsApp <i class="ph ph-paper-plane-tilt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container footer-inner">
+                    <div class="footer-top">
+                        <div class="footer-brand">
+                            <div class="logo footer-logo">
+                                <span class="logo-mark">G</span>
+                                <span class="logo-text">URUKULA</span>
+                            </div>
+                            <p>Architecting the future of education with precision and vision. Excellence since 2014.</p>
+                            <div class="footer-socials">
+                                <a href="#" class="social-icon"><i class="ph ph-linkedin-logo"></i></a>
+                                <a href="#" class="social-icon"><i class="ph ph-instagram-logo"></i></a>
+                                <a href="#" class="social-icon"><i class="ph ph-x-logo"></i></a>
+                            </div>
+                        </div>
+                        <div class="footer-links">
+                            <div class="footer-col">
+                                <h5>Navigate</h5>
+                                <ul>
+                                    <li><a href="#home">Home</a></li>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#subjects">Curriculum</a></li>
+                                    <li><a href="#faculty">Faculty</a></li>
+                                    <li><a href="#faqs">FAQs</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-col">
+                                <h5>Subjects</h5>
+                                <ul>
+                                    <li><a href="#math">Mathematics</a></li>
+                                    <li><a href="#physics">Physics</a></li>
+                                    <li><a href="#chemistry">Chemistry</a></li>
+                                    <li><a href="#cs">Computer Science</a></li>
+                                    <li><a href="#commerce">Commerce</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-col">
+                                <h5>Contact</h5>
+                                <ul>
+                                    <li><a href="tel:+919600296734">+91 96002 96734</a></li>
+                                    <li><a href="#admission">Enroll Now</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 Gurukula Tuitions. All rights reserved.</p>
+                        <p class="footer-craft">Designed with precision.</p>
+                    </div>
+                </div>
+            </footer>
+
         </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <header class="hero" id="home">
-        <div class="hero-bg-glow"></div>
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-label fade-up">
-                        <span class="label-dot"></span>
-                        Tiruvallur's Most Trusted Learning Center
-                    </div>
-                    <h1 class="fade-up" style="animation-delay: 0.1s;">Nurturing Minds for <span>Future Success</span></h1>
-                    <p class="fade-up" style="animation-delay: 0.2s;">Transforming academic performance through personalized coaching, expert guidance, and a foundation-first learning approach for Classes 1–12.</p>
-                    <div class="hero-ctas fade-up" style="animation-delay: 0.3s;">
-                        <a href="#admission" class="btn btn-primary btn-lg">Start Free Demo <i class="fas fa-arrow-right"></i></a>
-                        <a href="#subjects" class="btn btn-ghost btn-lg">View Programs</a>
-                    </div>
-                    <div class="hero-trust fade-up" style="animation-delay: 0.4s;">
-                        <div class="trust-avatars">
-                            <!-- FIX 2: Replaced external ui-avatars.com API calls with inline CSS avatars -->
-                            <div class="avatar-circle" style="background:#1E40AF;">S</div>
-                            <div class="avatar-circle" style="background:#F59E0B;">A</div>
-                            <div class="avatar-circle" style="background:#10B981;">P</div>
-                            <span class="avatar-plus">+500</span>
-                        </div>
-                        <div class="trust-text">
-                            <strong>1000+ Success Stories</strong>
-                            <span>Join the Gurukula family today</span>
-                        </div>
-                    </div>
+    <!-- WhatsApp Modal -->
+    <div id="whatsapp-modal" class="whatsapp-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-close"><i class="ph ph-x"></i></div>
+            <div class="modal-body">
+                <div class="enquiry-header">
+                    <i class="ph ph-whatsapp-logo"></i>
+                    <h5>Quick Enquiry</h5>
                 </div>
-                <div class="hero-visual fade-in">
-                    <div class="visual-card">
-                        <div class="card-badge"><i class="fas fa-award"></i> Since 2014</div>
-                        <div class="card-content">
-                            <div class="stat-item">
-                                <span class="stat-num">98%</span>
-                                <span class="stat-label">Distinction Rate</span>
-                            </div>
-                            <div class="stat-divider"></div>
-                            <div class="stat-item">
-                                <span class="stat-num">15:1</span>
-                                <span class="stat-label">Student Ratio</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <i class="fas fa-check-circle"></i> ISO Certified Institute
-                        </div>
-                    </div>
-                    <div class="visual-blob"></div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-visual reveal">
-                    <div class="about-img-box">
-                        <!-- FIX 3: Added loading="lazy" and decoding="async" to all below-fold images -->
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Students Learning" class="about-main-img" loading="lazy" decoding="async">
-                        <div class="experience-badge">
-                            <strong>10+</strong>
-                            <span>Years of Trust</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-info reveal">
-                    <span class="badge">About Our Institute</span>
-                    <h2 class="section-title">Where Learning Meets Excellence</h2>
-                    <p>Gurukula Tuitions was founded with a single mission: to provide quality, affordable coaching that focuses on conceptual understanding rather than rote memorization. Over the past decade, we have helped hundreds of students in Tiruvallur achieve their academic goals and build strong foundations for their future careers.</p>
-                    <ul class="check-list">
-                        <li><i class="fas fa-check-circle"></i> Individualized attention for every learner.</li>
-                        <li><i class="fas fa-check-circle"></i> Comprehensive coverage of CBSE & State Board syllabus.</li>
-                        <li><i class="fas fa-check-circle"></i> Regular assessments and performance tracking.</li>
-                        <li><i class="fas fa-check-circle"></i> Conducive and safe learning environment.</li>
-                    </ul>
-                    <a href="#admission" class="btn btn-primary">Join Our Next Batch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section class="why" id="why">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">Why Gurukula?</span>
-                <h2 class="section-title">The Gurukula Advantage</h2>
-                <p class="section-desc">We offer a unique blend of traditional values and modern teaching techniques.</p>
-            </div>
-            <div class="why-grid">
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-user-graduate"></i></div>
-                    <h4>Individual Attention</h4>
-                    <p>We limit our batch sizes to 15 students to ensure that every child receives the personal guidance they need from our expert faculty.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                    <h4>Expert Faculty</h4>
-                    <p>Our educators are not just teachers; they are mentors with over 10 years of experience in specialized subject coaching.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
-                    <h4>Regular Assessments</h4>
-                    <p>Weekly tests and monthly comprehensive exams help track progress and identify areas that need extra focus.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h4>Concept-Based Learning</h4>
-                    <p>We believe in deep-diving into subjects to ensure students understand the 'why' behind every concept they learn.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
-                    <h4>Parent Updates</h4>
-                    <p>Transparent communication with parents through regular meetings and detailed progress reports every month.</p>
-                </div>
-                <div class="why-card reveal">
-                    <div class="card-icon"><i class="fas fa-clock"></i></div>
-                    <h4>Flexible Timings</h4>
-                    <p>Batch schedules are carefully planned to align with school hours, ensuring students maintain a healthy study-life balance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAMS SECTION -->
-    <section class="subjects" id="subjects">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">Our Programs</span>
-                <h2 class="section-title">Comprehensive Coaching for All Grades</h2>
-                <p class="section-desc">Tailored educational programs for CBSE and State Board students.</p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-card reveal">
-                    <div class="card-header">
-                        <i class="fas fa-child"></i>
-                        <h3>Primary Wing</h3>
-                        <p>Classes 1 – 5</p>
-                    </div>
-                    <div class="card-price">
-                        <span class="currency">₹</span>
-                        <span class="amount">1,500</span>
-                        <span class="period">/ Month</span>
-                    </div>
-                    <ul class="card-features">
-                        <li><i class="fas fa-check"></i> All Major Subjects</li>
-                        <li><i class="fas fa-check"></i> Handwriting Mastery</li>
-                        <li><i class="fas fa-check"></i> Basic Arithmetic</li>
-                        <li><i class="fas fa-check"></i> Interactive Sessions</li>
-                    </ul>
-                    <a href="#admission" class="btn btn-outline-primary">Enquire Now</a>
-                </div>
-                <div class="program-card popular reveal">
-                    <div class="popular-tag">Most Recommended</div>
-                    <div class="card-header">
-                        <i class="fas fa-book-open"></i>
-                        <h3>Middle & High</h3>
-                        <p>Classes 6 – 10</p>
-                    </div>
-                    <div class="card-price">
-                        <span class="currency">₹</span>
-                        <span class="amount">2,500</span>
-                        <span class="period">/ Month</span>
-                    </div>
-                    <ul class="card-features">
-                        <li><i class="fas fa-check"></i> Science & Maths Mastery</li>
-                        <li><i class="fas fa-check"></i> Board Exam Prep</li>
-                        <li><i class="fas fa-check"></i> Language Skills</li>
-                        <li><i class="fas fa-check"></i> Mock Test Series</li>
-                    </ul>
-                    <a href="#admission" class="btn btn-primary">Enquire Now</a>
-                </div>
-                <div class="program-card reveal">
-                    <div class="card-header">
-                        <i class="fas fa-user-graduate"></i>
-                        <h3>Higher Secondary</h3>
-                        <p>Classes 11 – 12</p>
-                    </div>
-                    <div class="card-price">
-                        <span class="currency">₹</span>
-                        <span class="amount">3,500</span>
-                        <span class="period">/ Month</span>
-                    </div>
-                    <ul class="card-features">
-                        <li><i class="fas fa-check"></i> Stream-Specific Coaching</li>
-                        <li><i class="fas fa-check"></i> Intensive Practice</li>
-                        <li><i class="fas fa-check"></i> Board Strategies</li>
-                        <li><i class="fas fa-check"></i> Career Guidance</li>
-                    </ul>
-                    <a href="#admission" class="btn btn-outline-primary">Enquire Now</a>
-                </div>
-            </div>
-            <div class="subjects-list-wrapper reveal">
-                <h4>Specialized Subject Expertise:</h4>
-                <div class="subject-tags">
-                    <span>Mathematics</span>
-                    <span>Physics</span>
-                    <span>Chemistry</span>
-                    <span>Biology</span>
-                    <span>English</span>
-                    <span>Economics</span>
-                    <span>Accountancy</span>
-                    <span>Computer Science</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FACULTY SECTION -->
-    <section class="faculty" id="faculty">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">Meet Our Mentors</span>
-                <h2 class="section-title">Dedicated Experts Behind Our Success</h2>
-                <p class="section-desc">Learn from educators who are passionate about teaching and committed to student growth.</p>
-            </div>
-            <div class="faculty-grid">
-                <div class="faculty-card reveal">
-                    <!-- FIX 2 (cont): Replaced ui-avatars.com with CSS avatar placeholder -->
-                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #1E40AF, #3B82F6);">
-                        <span class="faculty-initials">J</span>
-                    </div>
-                    <div class="faculty-info">
-                        <h4>Jayakanth Sir</h4>
-                        <span class="designation">Founder & Lead Mathematics</span>
-                        <p>12+ years experience in board exam preparation and higher secondary coaching.</p>
-                        <div class="expertise">Expertise: Higher Math Specialist</div>
-                    </div>
-                </div>
-                <div class="faculty-card reveal">
-                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #D97706, #F59E0B);">
-                        <span class="faculty-initials">M</span>
-                    </div>
-                    <div class="faculty-info">
-                        <h4>Dr. S. Meenakshi</h4>
-                        <span class="designation">Senior Science Mentor</span>
-                        <p>Ph.D. holder with a focus on making Physics and Chemistry easy to grasp for students.</p>
-                        <div class="expertise">Expertise: Physics & Chemistry (9-12)</div>
-                    </div>
-                </div>
-                <div class="faculty-card reveal">
-                    <div class="faculty-img faculty-img-placeholder" style="background: linear-gradient(135deg, #065F46, #10B981);">
-                        <span class="faculty-initials">R</span>
-                    </div>
-                    <div class="faculty-info">
-                        <h4>Mr. R. Rajesh</h4>
-                        <span class="designation">English Language Expert</span>
-                        <p>Expert in grammar and communication, focusing on building student confidence.</p>
-                        <div class="expertise">Expertise: English & Soft Skills</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALLERY SECTION -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">Inside Gurukula</span>
-                <h2 class="section-title">Our Learning Environment</h2>
-                <p class="section-desc">Take a glimpse into our modern classrooms and vibrant study sessions.</p>
-            </div>
-            <div class="gallery-grid">
-                <!-- FIX 3 (cont): loading="lazy" + decoding="async" on all gallery images -->
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?q=80&w=800&auto=format&fit=crop" alt="Modern Classroom" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Classroom Setup</span>
-                    </div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Students Learning" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Study Session</span>
-                    </div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800&auto=format&fit=crop" alt="Interactive Teaching" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Teaching Session</span>
-                    </div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?q=80&w=800&auto=format&fit=crop" alt="Library and Study Area" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Resource Center</span>
-                    </div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1510531704581-5b2870972060?q=80&w=800&auto=format&fit=crop" alt="Student Achievement" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Celebrating Success</span>
-                    </div>
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Creative Learning" loading="lazy" decoding="async">
-                    <div class="gallery-overlay">
-                        <i class="fas fa-search-plus"></i>
-                        <span>Individual Focus</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ADMISSION SECTION -->
-    <section class="admission" id="admission">
-        <div class="container">
-            <div class="admission-grid">
-                <div class="admission-info reveal">
-                    <span class="badge">Join Us Now</span>
-                    <h2 class="section-title">Take the First Step Toward Academic Success</h2>
-                    <p>Submit your details to book a free demo class or ask about batch availability. We look forward to helping you achieve your dreams.</p>
-                    <div class="contact-methods">
-                        <div class="method-item call-card">
-                            <div class="call-container">
-                                <h5>Call for Admission</h5>
-                                <a href="tel:+919600296734" class="phone-link">+91 96002 96734</a>
-                                <a href="tel:+919600296734" class="btn-call-admission" aria-label="Call Now">
-                                    <i class="fas fa-phone-alt"></i> Call Now
-                                </a>
-                            </div>
-                        </div>
-                        <div class="method-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h5>WhatsApp Enquiry</h5>
-                                <a href="https://wa.me/919600296734" target="_blank">Chat on WhatsApp</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="admission-form-card reveal">
-                    <form id="admissionForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="studentName">Student Name</label>
-                                <input type="text" id="studentName" placeholder="e.g. Rahul Kumar" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="parentName">Parent Name</label>
-                                <input type="text" id="parentName" placeholder="e.g. Mr. Rajesh" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" placeholder="10-digit mobile number" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="grade">Class/Grade</label>
-                                <select id="grade" required>
-                                    <option value="" disabled selected>Select Grade</option>
-                                    <option value="1-5">Primary (1-5)</option>
-                                    <option value="6-8">Middle (6-8)</option>
-                                    <option value="9-10">High (9-10)</option>
-                                    <option value="11-12">Higher Sec (11-12)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="school">School Name</label>
-                            <input type="text" id="school" placeholder="e.g. Tiruvallur Public School">
-                        </div>
-                        <div class="form-group">
-                            <label for="subjectsInterested">Subjects Interested</label>
-                            <input type="text" id="subjectsInterested" placeholder="e.g. Mathematics, Science">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message/Notes (Optional)</label>
-                            <textarea id="message" placeholder="Tell us about your requirements..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                            Submit Admission Enquiry
-                        </button>
-                    </form>
-                    <div id="formSuccess" class="success-message">
-                        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-                        <h3>Successfully Submitted!</h3>
-                        <p>We have received your enquiry. Our team will contact you within 24 hours.</p>
-                        <button class="btn btn-outline-primary" onclick="window.location.reload()">Send Another</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">FAQs</span>
-                <h2 class="section-title">Common Questions</h2>
-                <p class="section-desc">Clear answers to help you make the best choice for your education.</p>
-            </div>
-            <div class="faq-accordion reveal">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What is the batch size at Gurukula?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>To ensure individual attention, we maintain a strict batch size of maximum 15 students per group.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you provide demo classes?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we offer two free demo classes for all new students to experience our teaching methodology before enrolling.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How do you track student progress?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We conduct weekly tests and monthly assessments. Progress reports are shared with parents through regular monthly meetings.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What are the batch timings?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Batch timings are generally scheduled between 5:00 PM and 8:30 PM on weekdays, keeping school hours in mind.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you coach for both CBSE and State Board?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we have specialized study materials and teaching strategies for both CBSE and State Board curriculum.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS SECTION -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="badge">Success Stories</span>
-                <h2 class="section-title">Trusted by Parents & Students</h2>
-                <p class="section-desc">Hear directly from those who have experienced the Gurukula difference.</p>
-            </div>
-            <div class="testi-grid">
-                <div class="testi-card reveal">
-                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Jayakanth sir is an exceptionally talented teacher. He helped my son overcome his fear of Mathematics and score 95% in his boards."</p>
-                    <div class="testi-user">
-                        <div class="user-avatar">D</div>
-                        <div class="user-info">
-                            <h5>Dhana Jayan</h5>
-                            <span>Parent</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card reveal">
-                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"The small batch size really helped. I could ask doubts freely and the concepts were explained with real-life examples."</p>
-                    <div class="testi-user">
-                        <div class="user-avatar">S</div>
-                        <div class="user-info">
-                            <h5>Siva Shankar</h5>
-                            <span>Student (Class 12)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testi-card reveal">
-                    <div class="testi-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"I was struggling with Science, but Dr. Meenakshi's teaching style made everything so clear. Highly recommended!"</p>
-                    <div class="testi-user">
-                        <div class="user-avatar">R</div>
-                        <div class="user-info">
-                            <h5>Ramya K.</h5>
-                            <span>Class 10 Student</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOCATION SECTION -->
-    <section id="location" class="location">
-        <div class="container">
-            <div class="location-grid">
-                <div class="location-map reveal">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3884.6!2d79.9063!3d13.1437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA4JzM3LjMiTiA3OcKwNTQnMjIuNyJF!5e0!3m2!1sen!2sin!4v1714240000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" title="Gurukula Tuitions Location"></iframe>
-                </div>
-                <div class="location-info reveal">
-                    <span class="badge">Visit Us</span>
-                    <h2>Easy to Find, Easy to Reach</h2>
-                    <p>Centrally located in Tiruvallur, our institute provides a safe and quiet environment perfect for focused learning.</p>
-                    <div class="info-list">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>No. 69, South Tank Street, Tiruvallur – 602001, Tamil Nadu</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Open: Mon - Sat (5:00 PM - 8:30 PM)</span>
-                        </div>
-                    </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=13.1437,79.9063" target="_blank" class="btn btn-primary btn-block">Get Directions <i class="fas fa-directions"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#home" class="nav-logo">
-                        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <span>Gurukula<span>Tuitions</span></span>
-                    </a>
-                    <p>Nurturing young minds since 2014. We are committed to providing the highest quality education and helping students build a foundation for a lifelong journey of learning and success.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/919600296734" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#subjects">Programs & Fees</a></li>
-                        <li><a href="#faculty">Meet Our Faculty</a></li>
-                        <li><a href="#admission">Admission</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Get In Touch</h4>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +91 96002 96734</li>
-                        <li><i class="fas fa-envelope"></i> info@gurukulatuitions.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Tiruvallur, Tamil Nadu</li>
-                    </ul>
-                    <div class="footer-hours">
-                        <p><strong>Office Hours:</strong></p>
-                        <span>Monday - Saturday: 4:00 PM - 9:00 PM</span>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Gurukula Tuitions. All Rights Reserved.</p>
-                <p>Designed with Excellence in Education</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- UTILITIES -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></button>
-
-    <div class="wa-float-container">
-        <div class="wa-options" id="waOptions">
-            <div class="wa-options-header">
-                <i class="fab fa-whatsapp"></i>
-                <span>Quick Enquiry</span>
-            </div>
-            <div class="wa-field">
-                <label for="waGrade">Select Student Class</label>
-                <select id="waGrade">
+                <p class="modal-desc">Select your class and connect with us instantly on WhatsApp.</p>
+                <p>Select Student Class</p>
+                <select id="modal-student-class" class="enquiry-select">
                     <option value="1">Class 1</option>
                     <option value="2">Class 2</option>
                     <option value="3">Class 3</option>
@@ -681,19 +718,30 @@
                     <option value="9">Class 9</option>
                     <option value="10">Class 10</option>
                     <option value="11">Class 11</option>
-                    <option value="12">Class 12</option>
+                    <option value="12" selected>Class 12</option>
                 </select>
+                <button id="modal-whatsapp-chat-btn" class="btn btn-whatsapp-chat magnetic">
+                    Chat on WhatsApp <i class="ph ph-paper-plane-tilt"></i>
+                </button>
             </div>
-            <button id="waSendBtn">Chat on WhatsApp <i class="fas fa-paper-plane"></i></button>
         </div>
-        <div class="wa-tooltip">Enquire on WhatsApp</div>
-        <button class="whatsapp-float" id="waToggle" aria-label="Chat on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </button>
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="script.js" defer></script>
-</body>
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <div class="whatsapp-floating-group">
+            <span class="whatsapp-label">Enquire on WhatsApp</span>
+            <button class="whatsapp-btn magnetic" id="floating-whatsapp-trigger">
+                <i class="ph ph-whatsapp-logo"></i>
+            </button>
+        </div>
+        <button id="back-to-top" class="back-top-btn magnetic"><i class="ph ph-arrow-up"></i></button>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>

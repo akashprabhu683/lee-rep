@@ -1,314 +1,346 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. CONSTANTS & DOM ELEMENTS
-    const navbar      = document.getElementById('navbar');
-    const backToTop   = document.getElementById('backToTop');
-    const hamburger   = document.getElementById('hamburger');
-    const mobileNav   = document.getElementById('mobileNav');
-    const closeMobileNav = document.getElementById('closeMobileNav');
-    const overlay     = document.getElementById('overlay');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
-    const navLinks    = document.querySelectorAll('.nav-links a');
-    const admissionForm = document.getElementById('admissionForm');
-    const formSuccess = document.getElementById('formSuccess');
-    const submitBtn   = document.getElementById('submitBtn');
+    // ── LENIS SMOOTH SCROLL ─────────────────────
+    const lenis = new Lenis({
+        duration: 1.8,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        orientation: 'vertical',
+    });
 
-    const NAV_HEIGHT = 82;
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-    // 2. STICKY NAVBAR & BACK TO TOP
-    //    FIX 9: Scroll handler wrapped in requestAnimationFrame throttle.
-    //    This means handleScroll runs at most once per animation frame (~60fps cap)
-    //    instead of firing on every tiny scroll delta — prevents main-thread overload.
-    const handleScroll = () => {
-        const scrollY = window.scrollY;
+    // ── GSAP SETUP ──────────────────────────────
+    gsap.registerPlugin(ScrollTrigger);
 
-        navbar.classList.toggle('scrolled', scrollY > 50);
-        backToTop.classList.toggle('show', scrollY > 500);
+    // Sync GSAP ScrollTrigger with Lenis
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
 
-        if (scrollY < 100) {
-            navLinks.forEach(link => {
-                link.classList.toggle('active', link.getAttribute('href') === '#home');
+    // ── HERO ANIMATIONS ─────────────────────────
+    const heroTl = gsap.timeline({ delay: 0.2 });
+    heroTl
+        .from('.badge-wrapper', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' })
+        .from('.hero-title', { y: 60, opacity: 0, duration: 1.2, ease: 'power4.out' }, '-=0.4')
+        .from('.hero-subtitle', { y: 30, opacity: 0, duration: 1, ease: 'power3.out' }, '-=0.8')
+        .from('.hero-actions', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+        .from('.hero-stats', { y: 20, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+        .from('.hero-visual', { scale: 0.85, opacity: 0, duration: 1.5, ease: 'power2.out' }, '-=1.2');
+
+    // ── SCROLL-TRIGGERED REVEALS ─────────────────
+    // Subject sections
+    document.querySelectorAll('.subject-section').forEach(section => {
+        const info = section.querySelector('.subject-info');
+        const visual = section.querySelector('.subject-visual');
+        const isDark = section.classList.contains('physics-section') || section.classList.contains('cs-section');
+
+        if (info) {
+            gsap.from(info, {
+                scrollTrigger: { trigger: section, start: 'top 72%', once: true },
+                x: -40, opacity: 0, duration: 1, ease: 'power3.out'
             });
         }
-    };
-
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                handleScroll();
-                ticking = false;
+        if (visual) {
+            gsap.from(visual, {
+                scrollTrigger: { trigger: section, start: 'top 72%', once: true },
+                x: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.15
             });
-            ticking = true;
         }
-    }, { passive: true });
+    });
 
-    handleScroll(); // run once on load
+    // About section
+    const aboutGrid = document.querySelector('.about-grid');
+    if (aboutGrid) {
+        gsap.from('.about-info', {
+            scrollTrigger: { trigger: aboutGrid, start: 'top 75%', once: true },
+            x: -40, opacity: 0, duration: 1, ease: 'power3.out'
+        });
+        gsap.from('.about-visual-box', {
+            scrollTrigger: { trigger: aboutGrid, start: 'top 75%', once: true },
+            x: 40, opacity: 0, duration: 1, ease: 'power3.out', delay: 0.15
+        });
+    }
 
-    // 3. SMOOTH NAVIGATION
-    const smoothScroll = (targetId) => {
-        const targetElement = document.querySelector(targetId);
-        if (!targetElement) return;
-        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - NAV_HEIGHT;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    // Faculty cards staggered
+    gsap.from('.faculty-card', {
+        scrollTrigger: { trigger: '.faculty-grid', start: 'top 85%', once: true },
+        y: 30, autoAlpha: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+    });
+
+    // Gallery items staggered
+    gsap.from('.gallery-item', {
+        scrollTrigger: { trigger: '.gallery-grid', start: 'top 85%', once: true },
+        y: 30, autoAlpha: 0, duration: 0.7, stagger: 0.1, ease: 'power3.out'
+    });
+
+    // FAQ items
+    gsap.from('.faq-item', {
+        scrollTrigger: { trigger: '.faq-container', start: 'top 85%', once: true },
+        y: 20, autoAlpha: 0, duration: 0.6, stagger: 0.1, ease: 'power3.out'
+    });
+
+    // Admission section
+    gsap.from('.admission-box', {
+        scrollTrigger: { trigger: '.admission-box', start: 'top 80%', once: true },
+        y: 40, opacity: 0, duration: 1, ease: 'power3.out'
+    });
+
+    // ── NAVBAR BEHAVIOR ─────────────────────────
+    let lastScroll = 0;
+    const navbar = document.querySelector('.navbar');
+
+    lenis.on('scroll', ({ scroll }) => {
+        if (scroll > 80) {
+            navbar.classList.add('scrolled');
+            if (scroll > lastScroll + 5) {
+                navbar.classList.add('hidden');
+            } else if (scroll < lastScroll - 5) {
+                navbar.classList.remove('hidden');
+            }
+        } else {
+            navbar.classList.remove('scrolled', 'hidden');
+        }
+        lastScroll = scroll;
+    });
+
+    // ── MOBILE SIDE NAV ──────────────────────────
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const sideNav = document.querySelector('.side-nav');
+    const navClose = document.querySelector('.nav-close');
+    const sideLinks = document.querySelectorAll('.side-link');
+
+    const openMenu = () => {
+        sideNav.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lenis.stop();
     };
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#') return;
+    const closeMenu = () => {
+        sideNav.classList.remove('active');
+        document.body.style.overflow = '';
+        lenis.start();
+    };
+
+    if (mobileToggle) mobileToggle.addEventListener('click', openMenu);
+    if (navClose) navClose.addEventListener('click', closeMenu);
+
+    sideLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
             e.preventDefault();
-            if (mobileNav.classList.contains('open')) toggleMenu();
-            smoothScroll(href);
+            const target = link.getAttribute('href');
+            closeMenu();
+            setTimeout(() => lenis.scrollTo(target, { duration: 2.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }), 400);
         });
     });
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // 4. ACTIVE LINK TRACKING (IntersectionObserver — zero scroll cost)
-    const sections = document.querySelectorAll('header[id], section[id]');
-
-    const activeNavObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-                mobileLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
+    // Smooth nav link scrolling (desktop)
+    document.querySelectorAll('.nav-link, .footer-col a[href^="#"], .btn[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#') && href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    lenis.scrollTo(target, { duration: 2.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+                }
             }
         });
-    }, {
-        rootMargin: `-${NAV_HEIGHT}px 0px -70% 0px`,
-        threshold: 0
     });
 
-    sections.forEach(section => activeNavObserver.observe(section));
+    // ── WHATSAPP MODAL ───────────────────────────
+    const waModal = document.getElementById('whatsapp-modal');
+    const waTrigger = document.getElementById('floating-whatsapp-trigger');
+    const modalClose = document.querySelector('.modal-close');
+    const modalBackdrop = document.querySelector('.modal-backdrop');
+    const waNumber = "919600296734";
 
-    // 5. MOBILE NAVIGATION TOGGLE
-    const toggleMenu = () => {
-        mobileNav.classList.toggle('open');
-        hamburger.classList.toggle('open');
-        overlay.classList.toggle('active');
-        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : 'auto';
+    const openModal = () => {
+        waModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        lenis.stop();
     };
 
-    hamburger.addEventListener('click', toggleMenu);
-    closeMobileNav.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', toggleMenu);
+    const closeModal = () => {
+        waModal.classList.remove('active');
+        document.body.style.overflow = '';
+        lenis.start();
+    };
 
-    // 6. SCROLL REVEAL (IntersectionObserver — no scroll listener needed)
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target); // stop watching once revealed
-            }
+    if (waTrigger) waTrigger.addEventListener('click', openModal);
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+    // Escape key closes modal and side nav
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+            closeMenu();
+        }
+    });
+
+    const buildWhatsAppMsg = (classVal) =>
+        `Hello Gurukula Tuitions, I am interested in enrolling my child (Class ${classVal}) in your institute. I would like to know more details.`;
+
+    // Modal WhatsApp button
+    const modalWAbtn = document.getElementById('modal-whatsapp-chat-btn');
+    const modalClassSelect = document.getElementById('modal-student-class');
+    if (modalWAbtn && modalClassSelect) {
+        modalWAbtn.addEventListener('click', () => {
+            const msg = buildWhatsAppMsg(modalClassSelect.value);
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+            closeModal();
         });
-    }, { threshold: 0.15 });
+    }
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // 7. COUNTER ANIMATION
-    //    FIX 10: Added 200ms defer before starting counter + reduced duration to 1200ms.
-    //    Previously started at 2000ms immediately on intersection, competing with
-    //    fonts/images still loading on hero entry. The defer gives the browser
-    //    a moment to settle before kicking off the 60fps rAF loop.
-    const stats = document.querySelectorAll('.stat-num');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const stat = entry.target;
-                counterObserver.unobserve(stat);
-
-                setTimeout(() => {
-                    const fullText = stat.innerText;
-                    const match = fullText.match(/(\d+)(.*)/);
-                    if (!match) return;
-
-                    const target    = parseInt(match[1]);
-                    const suffix    = match[2];
-                    const duration  = 1200; // was 2000ms — snappier and less main-thread time
-                    const frameRate = 1000 / 60;
-                    const totalFrames = Math.round(duration / frameRate);
-                    const increment = target / totalFrames;
-                    let count = 0;
-
-                    const updateCount = () => {
-                        count += increment;
-                        if (count < target) {
-                            stat.innerText = Math.round(count) + suffix;
-                            requestAnimationFrame(updateCount);
-                        } else {
-                            stat.innerText = target + suffix;
-                        }
-                    };
-
-                    updateCount();
-                }, 200); // defer start by 200ms
-            }
+    // Admission section WhatsApp button
+    const enquiryBtn = document.getElementById('whatsapp-chat-btn');
+    const classDropdown = document.getElementById('student-class');
+    if (enquiryBtn && classDropdown) {
+        enquiryBtn.addEventListener('click', () => {
+            const msg = buildWhatsAppMsg(classDropdown.value);
+            window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
         });
-    }, { threshold: 0.5 });
+    }
 
-    stats.forEach(stat => counterObserver.observe(stat));
+    // Call Now button
+    const callBtn = document.querySelector('.call-card .btn-primary');
+    if (callBtn) {
+        callBtn.addEventListener('click', () => {
+            window.location.href = 'tel:+919600296734';
+        });
+    }
 
-    // 8. FAQ ACCORDION
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
+    // ── MAGNETIC EFFECTS ─────────────────────────
+    document.querySelectorAll('.magnetic').forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            gsap.to(el, { x: x * 0.25, y: y * 0.25, duration: 0.5, ease: 'power2.out' });
+        });
+        el.addEventListener('mouseleave', () => {
+            gsap.to(el, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)' });
+        });
+    });
+
+    // ── FAQ ACCORDION ────────────────────────────
+    document.querySelectorAll('.faq-question').forEach(question => {
         question.addEventListener('click', () => {
+            const item = question.parentElement;
             const isActive = item.classList.contains('active');
-            faqItems.forEach(other => other.classList.remove('active'));
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
             if (!isActive) item.classList.add('active');
         });
     });
 
-    // 9. ADMISSION FORM — WhatsApp redirect
-    if (admissionForm) {
-        admissionForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    // ── BACK TO TOP ──────────────────────────────
+    // FIX: Use class-based approach so CSS handles initial state
+    const backToTop = document.getElementById('back-to-top');
 
-            const studentName = document.getElementById('studentName').value;
-            const parentName  = document.getElementById('parentName').value;
-            const phone       = document.getElementById('phone').value;
-            const grade       = document.getElementById('grade').value;
-            const school      = document.getElementById('school').value;
-            const subjects    = document.getElementById('subjectsInterested').value;
-            const userMessage = document.getElementById('message').value;
-
-            if (phone.length < 10) {
-                alert('Please enter a valid 10-digit phone number.');
-                return;
-            }
-
-            const phoneNumber = "919600296734";
-            const waMessage =
-                `*New Admission Enquiry - Gurukula Tuitions*%0A%0A` +
-                `*Student:* ${studentName}%0A` +
-                `*Parent:* ${parentName}%0A` +
-                `*Grade:* ${grade}%0A` +
-                `*School:* ${school}%0A` +
-                `*Phone:* ${phone}%0A` +
-                `*Subjects:* ${subjects}%0A` +
-                `*Additional Info:* ${userMessage || 'N/A'}`;
-
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                window.open(`https://wa.me/${phoneNumber}?text=${waMessage}`, '_blank');
-                admissionForm.style.display = 'none';
-                formSuccess.style.display = 'block';
-                formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 800);
-        });
-    }
-
-    // 10. WHATSAPP FLOATING BUTTON
-    const waToggle  = document.getElementById('waToggle');
-    const waOptions = document.getElementById('waOptions');
-    const waGrade   = document.getElementById('waGrade');
-    const waSendBtn = document.getElementById('waSendBtn');
-
-    if (waToggle && waOptions) {
-        waToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            waOptions.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!waOptions.contains(e.target) && e.target !== waToggle) {
-                waOptions.classList.remove('active');
-            }
-        });
-
-        waSendBtn.addEventListener('click', () => {
-            const grade = waGrade.value;
-            const message = `Hello Gurukula Tuitions, I am interested in enrolling my child (Class ${grade}) in your institute. I would like to know more details.`;
-            window.open(`https://wa.me/919600296734?text=${encodeURIComponent(message)}`, '_blank');
-            waOptions.classList.remove('active');
-        });
-    }
-
-    // 11. GALLERY LIGHTBOX
-    //     FIX 11: Lightbox DOM is created once (already was), but we also now
-    //     reuse the existing img element's currentSrc so the browser serves
-    //     from cache instead of making a fresh network request on each open.
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    // Create lightbox once and reuse
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox-modal';
-    lightbox.innerHTML = `
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightboxImg" decoding="async">
-        <div class="lightbox-caption" id="lightboxCaption"></div>
-    `;
-    document.body.appendChild(lightbox);
-
-    const lightboxImg     = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const closeBtn        = lightbox.querySelector('.lightbox-close');
-
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const img     = item.querySelector('img');
-            const caption = item.querySelector('span').innerText;
-
-            // Use currentSrc (respects srcset/cache) with fallback to src
-            lightboxImg.src       = img.currentSrc || img.src;
-            lightboxCaption.innerText = caption;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    };
-
-    closeBtn.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    // Close lightbox on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
+    lenis.on('scroll', ({ scroll }) => {
+        if (scroll > 300) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
         }
     });
-    // 12. MOBILE AUTO-HOVER (Scroll-triggered hover for cards & buttons)
-    // This feature enhances mobile UX by automatically triggering hover effects
-    // as elements enter the middle of the screen.
-    const autoHoverElements = document.querySelectorAll('.why-card, .program-card, .faculty-card, .gallery-item, .testi-card, .btn, .subject-tags span, .faq-item, .btn-call-admission');
-    
-    if (window.innerWidth < 1024) {
-        let hoverTimeout;
-        const autoHoverObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    clearTimeout(hoverTimeout);
-                    hoverTimeout = setTimeout(() => {
-                        autoHoverElements.forEach(el => el.classList.remove('auto-hover'));
-                        entry.target.classList.add('auto-hover');
-                    }, 50); // Small debounce to prevent flickering on fast scroll
-                } else {
-                    entry.target.classList.remove('auto-hover');
-                }
-            });
-        }, {
-            // Target elements when they are in the middle 10% of the viewport (more focused)
-            rootMargin: '-45% 0px -45% 0px',
-            threshold: 0
-        });
 
-        autoHoverElements.forEach(el => autoHoverObserver.observe(el));
+    if (backToTop) {
+        backToTop.addEventListener('click', () => lenis.scrollTo(0, { duration: 2.5, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) }));
     }
+
+    // ── ACTIVE NAV LINK SYNC ─────────────────────
+    const navObserverOptions = {
+        root: null,
+        rootMargin: '-25% 0px -50% 0px',
+        threshold: 0
+    };
+
+    const navSections = document.querySelectorAll('section[id]');
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    const href = link.getAttribute('href');
+                    const matches = href === `#${id}` ||
+                        (href === '#subjects' && ['math','physics','chemistry','biology','cs','commerce','humanities','english','history'].includes(id));
+                    link.classList.toggle('active', matches);
+                });
+            }
+        });
+    }, navObserverOptions);
+
+    navSections.forEach(el => scrollObserver.observe(el));
+
+    // ── PARTICLES ────────────────────────────────
+    if (window.particlesJS) {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 20, density: { enable: true, value_area: 900 } },
+                color: { value: "#0f172a" },
+                shape: { type: "circle" },
+                opacity: { value: 0.04, random: true },
+                size: { value: 2.5, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 180,
+                    color: "#0f172a",
+                    opacity: 0.04,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6,
+                    direction: "none",
+                    random: true,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: false }, onclick: { enable: false } }
+            },
+            retina_detect: true
+        });
+    }
+
+    // ── PARALLAX ON HERO VISUAL ──────────────────
+    lenis.on('scroll', ({ scroll }) => {
+        const heroVisual = document.querySelector('.hero-visual');
+        if (heroVisual) {
+            gsap.to(heroVisual, { y: scroll * 0.08, duration: 0 });
+        }
+    });
+
+    // ── SECTION NUMBER ACCENT COLOR ──────────────
+    // Sets section numbers to match their accent color dynamically
+    const accentMap = {
+        'math-section': 'var(--accent-math)',
+        'physics-section': 'rgba(255,255,255,0.3)',
+        'chemistry-section': 'var(--accent-chem)',
+        'biology-section': 'var(--accent-bio)',
+        'cs-section': 'rgba(255,255,255,0.3)',
+        'commerce-section': 'var(--accent-commerce)',
+        'english-section': 'var(--accent-english)',
+        'history-section': 'var(--accent-history-light)'
+    };
+
+    Object.entries(accentMap).forEach(([cls, color]) => {
+        const el = document.querySelector(`.${cls} .section-number`);
+        if (el) el.style.color = color;
+    });
+
+    // ── REFRESH ON LOAD ─────────────────────────
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
+
+    console.log('✅ Gurukula Tuitions — All systems initialized');
 });
