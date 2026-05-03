@@ -248,22 +248,28 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 1024px) { .mobile-toggle { display: flex; } }
 
 .toggle-bar {
-    width: 24px;
-    height: 1.5px;
+    width: 28px;
+    height: 2px;
     background: var(--accent-navy);
-    border-radius: 2px;
+    border-radius: 4px;
     transition: var(--transition-smooth);
 }
+
+.mobile-toggle:hover .toggle-bar:first-child { transform: translateX(4px); }
+.mobile-toggle:hover .toggle-bar:last-child { transform: translateX(-4px); }
 
 /* ── SIDE NAV (MOBILE) ───────────────────────── */
 .side-nav {
     position: fixed;
     top: 0; right: 0;
     width: 100%; height: 100vh;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 2000;
     transform: translateX(100%);
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid var(--border-light);
 }
 
 .side-nav.active { transform: translateX(0); }
@@ -323,7 +329,7 @@ a { text-decoration: none; color: inherit; }
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .hero-particles {
@@ -453,8 +459,8 @@ a { text-decoration: none; color: inherit; }
 
 .floating-orbit {
     position: relative;
-    width: 380px;
-    height: 380px;
+    width: clamp(280px, 80vw, 380px);
+    height: clamp(280px, 80vw, 380px);
 }
 
 .orbit-center-glow {
@@ -856,7 +862,8 @@ a { text-decoration: none; color: inherit; }
 
 /* ── PHYSICS VISUAL ─────────────────────────── */
 .physics-waves {
-    width: 360px; height: 360px;
+    width: clamp(280px, 90vw, 360px); 
+    height: clamp(280px, 90vw, 360px);
     position: relative;
     display: flex;
     justify-content: center;
@@ -896,7 +903,8 @@ a { text-decoration: none; color: inherit; }
 /* ── CHEMISTRY VISUAL ───────────────────────── */
 .molecule-visual {
     position: relative;
-    width: 300px; height: 300px;
+    width: clamp(240px, 80vw, 300px); 
+    height: clamp(240px, 80vw, 300px);
 }
 
 .mol-center {
@@ -1033,10 +1041,10 @@ a { text-decoration: none; color: inherit; }
 
 /* ── COMMERCE VISUAL ─────────────────────────── */
 .commerce-visual {
-    position: relative;  /* FIX: required for chart-line-wrapper absolute positioning */
+    position: relative;
     width: 100%;
     max-width: 450px;
-    height: 280px;
+    height: clamp(200px, 50vw, 280px);
     padding-bottom: 40px;
 }
 
@@ -1128,7 +1136,8 @@ a { text-decoration: none; color: inherit; }
 
 .history-timeline {
     position: relative;
-    width: 200px;
+    width: 100%;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -1736,15 +1745,24 @@ a { text-decoration: none; color: inherit; }
 
 @media (max-width: 1024px) {
     .container { padding: 0 30px; }
-    .subject-content, .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .subject-content, .about-grid { grid-template-columns: 1fr; gap: 60px; text-align: center; }
     .subject-content.reverse { direction: ltr; }
     .subject-visual { order: -1; min-height: auto; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .hero-content { text-align: center; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { 
+        display: flex; 
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.15;
+        z-index: 0;
+        pointer-events: none;
+        scale: 1.2;
+    }
+    .hero-content { text-align: center; position: relative; z-index: 10; }
     .hero-actions { justify-content: center; }
     .hero-subtitle { margin-left: auto; margin-right: auto; }
-    .hero-stats { justify-content: center; }
+    .hero-stats { justify-content: center; width: 100%; max-width: 600px; margin: 0 auto; }
     .faculty-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-links { gap: 40px; }
     .admission-box { padding: 60px 40px; }
