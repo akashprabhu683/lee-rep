@@ -55,6 +55,9 @@
 
 html {
     scroll-behavior: auto; /* Lenis handles this */
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 html.lenis { height: auto; }
@@ -66,9 +69,17 @@ body {
     background-color: var(--bg-light);
     color: var(--text-main);
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     font-family: 'DM Sans', sans-serif;
+}
+
+#smooth-wrapper, #smooth-content {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
 }
 
 h1, h2, h3, h4, h5, .logo-text, .logo-mark {
@@ -268,11 +279,15 @@ a { text-decoration: none; color: inherit; }
     -webkit-backdrop-filter: blur(20px);
     z-index: 2000;
     transform: translateX(100%);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
     border-left: 1px solid var(--border-light);
 }
 
-.side-nav.active { transform: translateX(0); }
+.side-nav.active { 
+    transform: translateX(0); 
+    visibility: visible;
+}
 
 .side-nav-inner {
     padding: 40px;
@@ -1786,8 +1801,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 480px) {
-    .hero-title { font-size: 2.8rem; }
-    .subject-heading { font-size: 2rem; }
-    .section-title { font-size: 2.2rem; }
-    .cta-title { font-size: 2.5rem; }
+    .hero-title { font-size: 2.4rem; line-height: 1.1; }
+    .subject-heading { font-size: 1.8rem; }
+    .section-title { font-size: 2rem; }
+    .cta-title { font-size: 2.2rem; }
+    .badge { font-size: 0.65rem; letter-spacing: 1px; padding: 7px 14px; }
+    .hero-subtitle { font-size: 0.95rem; }
+    .hero-visual { scale: 0.7 !important; }
+    .hero-stat .stat-big { font-size: 1.6rem; }
+    .stat-caption { font-size: 0.65rem; letter-spacing: 1px; }
+    .phone-num { font-size: 1.4rem; }
 }
